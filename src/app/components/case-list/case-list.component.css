@@ -17,9 +17,12 @@ mat-card-content {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
 }
 
-p, mat-card-title, mat-card-subtitle {
+p,
+mat-card-title,
+mat-card-subtitle {
     color: white;
 }
 
@@ -37,11 +40,11 @@ mat-card-subtitle {
     text-overflow: ellipsis;
     max-width: 250px;
     display: block;
-  }
+}
 
-  .image {
+.image {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 5%;
-  }
+}
