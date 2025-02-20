@@ -1,9 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Cs2ApiService {
 
-  constructor() { }
+  URL_BASE = 'https://bymykel.github.io/CSGO-API/api/pt-BR/';
+
+  constructor(private http: HttpClient) { }
+
+  getAllCases(): Observable<any> {
+    const url = `${this.URL_BASE}/crates.json`;
+    return this.http.get<any>(url);
+  }
 }
