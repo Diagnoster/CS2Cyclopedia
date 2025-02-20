@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Cs2ApiService } from '../../services/cs2-api.service';
+import { Container } from '../../models/container';
 
 @Component({
   selector: 'app-case-list',
@@ -12,7 +13,7 @@ import { Cs2ApiService } from '../../services/cs2-api.service';
 })
 export class CaseListComponent implements OnInit {
 
-  container: any;
+  case: Container[] = [];
 
   constructor(private csApiService: Cs2ApiService) {
 
@@ -20,7 +21,8 @@ export class CaseListComponent implements OnInit {
 
   ngOnInit(): void {
     this.csApiService.getAllCases().subscribe( (data: any) => {
-      console.log(data);
+      this.case = data;
+      console.log(this.case);
     });  
   }
   
