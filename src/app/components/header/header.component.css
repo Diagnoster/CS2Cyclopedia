@@ -9,3 +9,7 @@ mat-toolbar {
 span {
     color: white;
 }
+
+.second-toolbar {
+    background-color: #0A0A0A;
+}
