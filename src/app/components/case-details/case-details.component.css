@@ -18,3 +18,31 @@
   .content {
     position: absolute;
   }
+
+  .rare-column {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(206, 206, 206, 0.062);
+    height: 100px;
+    border-radius: 10px;
+    overflow-x: scroll;
+    max-width: 70vw;
+    padding: 0 10px;
+    gap: 10px;
+}
+
+.item {
+    height: 70px;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+p {
+    color: white;
+}
+
+.info {
+    display: inline-flex;
+    gap: 10px;
+}
