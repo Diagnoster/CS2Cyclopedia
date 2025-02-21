@@ -6,7 +6,7 @@ import { CaseDetailsComponent } from './components/case-details/case-details.com
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, CaseListComponent, CaseDetailsComponent],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -4,12 +4,8 @@
 
 mat-toolbar {
     background-color: #0A0A0A;
-    position: fixed;
+    position: sticky;
     display: flex;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-
 }
 
 span {
