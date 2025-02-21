@@ -19,7 +19,9 @@ export class CaseDetailsComponent implements OnInit {
       this.container = navigation.extras.state['container'];
     }
   }
+
   ngOnInit(): void {
     console.log(this.container);
   }
+  
 }
