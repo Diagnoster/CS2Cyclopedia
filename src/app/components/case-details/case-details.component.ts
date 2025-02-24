@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Container } from '../../models/container';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-case-details',
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatTooltipModule
+  ],
   templateUrl: './case-details.component.html',
   styleUrl: './case-details.component.css'
 })

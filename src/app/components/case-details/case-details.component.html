@@ -7,14 +7,14 @@
         <h3>Normal itens:</h3>
         <div class="rare-column">
             @for(item of container?.contains; track item) {
-            <img class="item" mat-card-sm-image src="{{item?.image}}">
+            <img class="item" mat-card-sm-image src="{{item?.image}}" matTooltip="{{item?.name}}">
             }
         </div>
 
         <h3>Rare itens:</h3>
         <div class="rare-column">
             @for(item of container?.contains_rare; track item) {
-            <img class="item" mat-card-sm-image src="{{item?.image}}">
+            <img class="item" mat-card-sm-image src="{{item?.image}}" matTooltip="{{item?.name}}">
             }
         </div>
 
