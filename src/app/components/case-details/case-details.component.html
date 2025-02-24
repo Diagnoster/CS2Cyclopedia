@@ -1,9 +1,5 @@
 <div class="container">
-    <div class="background-image" [ngStyle]="{'background-image': 'url(' + container.image + ')'}"></div>
     <div class="content">
-        <h1>{{ container.name }}</h1>
-        <p>{{ container.market_hash_name }}</p>
-
         @if(container.contains) {
             @if(container.contains.length > 0) {
                 <h3>Normal itens:</h3>
@@ -31,4 +27,6 @@
             <p><b>Type:</b> {{container.type}}</p>
         </div>
     </div>
+    <div class="background-image" [ngStyle]="{'background-image': 'url(' + container.image + ')'}"></div>
+
 </div>

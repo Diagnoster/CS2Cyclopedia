@@ -10,6 +10,9 @@
         </button>
     </mat-toolbar-row>
     <mat-toolbar-row class="second-toolbar">
-        <span>Cases</span>
+        @if(containerImage) {
+            <span> <img class="img" mat-card-sm-image src="{{containerImage}}"> </span>
+        }
+        <span>{{ containerName }}</span>
     </mat-toolbar-row>
 </mat-toolbar>
