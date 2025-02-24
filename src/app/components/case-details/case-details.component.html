@@ -4,20 +4,23 @@
         <h1>{{ container.name }}</h1>
         <p>{{ container.market_hash_name }}</p>
 
-        @if(container.contains.length > 0) {
-            <h3>Normal itens:</h3>
-            <div class="rare-column">
-                @for(item of container.contains; track item) {
-                <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
-                }
-            </div>
-    
-            <h3>Rare itens:</h3>
-            <div class="rare-column">
-                @for(item of container.contains_rare; track item) {
-                <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
-                }
-            </div>
+        @if(container.contains) {
+            @if(container.contains.length > 0) {
+                <h3>Normal itens:</h3>
+                <div class="rare-column">
+                    @for(item of container.contains; track item) {
+                        <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
+                    }
+                </div>
+            }
+            @if(container.contains_rare.length > 0) {
+                <h3>Rare itens:</h3>
+                <div class="rare-column">
+                    @for(item of container.contains_rare; track item) {
+                        <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
+                    }
+                </div>
+            }
         }
         @else {
             <h3>This case does not have any droppable content</h3>
