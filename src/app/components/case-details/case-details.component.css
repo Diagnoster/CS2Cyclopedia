@@ -21,10 +21,10 @@
 
   .rare-column {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     background-color: rgba(206, 206, 206, 0.062);
-    height: 100px;
+    height: 120px;
     border-radius: 10px;
     overflow-x: scroll;
     max-width: 70vw;

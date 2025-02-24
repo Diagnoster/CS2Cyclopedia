@@ -15,12 +15,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class CaseDetailsComponent implements OnInit {
 
-  container: Container | undefined;
+  container: Container;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.container = navigation.extras.state['container'];
+    } else {
+      this.container = {} as Container;
     }
   }
 

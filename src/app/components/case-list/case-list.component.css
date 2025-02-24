@@ -11,6 +11,8 @@ mat-card {
     height: 210px;
     background-color: #24242491;
     border: none;
+    cursor: pointer;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
 }
 
 mat-card-content {
@@ -48,3 +50,10 @@ mat-card-subtitle {
     align-items: center;
     margin-top: 5%;
 }
+
+mat-card:hover {
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    transform: scale(1.15);
+  }
+  
