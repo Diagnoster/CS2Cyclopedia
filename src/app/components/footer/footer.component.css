@@ -1,7 +1,7 @@
 footer {
   display: flex;
-  justify-content: space-between;
-  z-index: 3;
+  justify-content: center;
+  z-index: 2;
   background-color: #333;
   color: white;
   text-align: center;
@@ -35,9 +35,7 @@ img {
 
 .table-container {
   position: fixed;
-  bottom: 110px;
-  right: 20px;
-  width: 450px;
+  bottom: 300px;
   background-color: #333;
   border: 1px solid #000000;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);

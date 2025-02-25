@@ -6,6 +6,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { WeaponCaseComponent } from '../weapon-case/weapon-case.component';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-case-details',
@@ -13,7 +16,20 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MatTooltipModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    WeaponCaseComponent
+  ],
+  animations: [
+    trigger('slideUp', [
+      transition(':enter', [
+        style({ transform: 'translateY(70%)', opacity: 0 }),
+        animate('300ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in', style({ transform: 'translateY(100%)', opacity: 0 }))
+      ])
+    ])
   ],
   templateUrl: './case-details.component.html',
   styleUrl: './case-details.component.css'
@@ -21,6 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class CaseDetailsComponent implements OnInit, OnDestroy {
 
   container: Container;
+  isTableVisible = false;
 
   constructor(private router: Router, private cs2Helper: Cs2HelperService) {
     const navigation = this.router.getCurrentNavigation();
@@ -41,6 +58,14 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.cs2Helper.changeCaseName('Cases');
     this.cs2Helper.changeCaseImage(null);
+  }
+
+  showTable() {
+    this.isTableVisible = true;
+  }
+
+  hideTable() {
+    this.isTableVisible = false;
   }
 
   

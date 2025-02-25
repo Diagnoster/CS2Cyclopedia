@@ -5,7 +5,7 @@ export class Container {
         public id: string,
         public name: string,
         public description: string,
-        public type: number,
+        public type: string,
         public first_sale_date: string,
         public contains: Item[],
         public contains_rare: Item[],
