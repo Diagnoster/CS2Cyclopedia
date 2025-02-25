@@ -29,16 +29,22 @@
 }
 
 .rare-column {
-  display: flex;
+  display: inline-flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   background-color: rgba(206, 206, 206, 0.062);
-  height: 150px;
+  height: 240px;
   border-radius: 10px;
   overflow-x: scroll;
   max-width: 70vw;
+  min-width: 60vw;
   padding: 0 10px;
   gap: 10px;
+}
+
+.rare-column::-webkit-scrollbar {
+  display: none; /* Oculta a barra no Chrome e Safari */
 }
 
 .item {
@@ -54,6 +60,10 @@ p {
 .info {
   display: inline-flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .item:hover {
