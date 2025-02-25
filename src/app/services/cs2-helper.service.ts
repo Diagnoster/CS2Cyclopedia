@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { WeaponCase } from '../models/weapon-case';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,15 @@ export class Cs2HelperService {
 
   changeCaseImage(image: string | null) {
     this.caseImageSource.next(image);
+  }
+
+  getWeaponCases(): WeaponCase[] {
+    return [
+      {raridade: 'Grau de especificação militar', cor: 'Azul escuro', chances: 79.92, probabilidade: '4 em 5'},
+      {raridade: 'Restrito', cor: 'Roxo', chances: 15.98, probabilidade: '1 em 6'},
+      {raridade: 'Classificado', cor: 'Rosa', chances: 3.2, probabilidade: '1 em 31'},
+      {raridade: 'Encoberto', cor: 'Vermelho', chances: 0.64, probabilidade: '1 em 156'},
+      {raridade: 'Extremamente Raro', cor: 'Ouro', chances: 0.26, probabilidade: '1 em 385'}
+    ];
   }
 }
