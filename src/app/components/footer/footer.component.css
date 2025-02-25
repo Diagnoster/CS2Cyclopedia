@@ -22,28 +22,3 @@ footer {
 a {
   color: rgb(204, 146, 204);
 }
-
-img {
-  width: 75px;
-  height: auto;
-}
-
-.img {
-  width: 80px;
-  cursor: pointer;
-}
-
-.table-container {
-  position: fixed;
-  bottom: 300px;
-  background-color: #333;
-  border: 1px solid #000000;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  border-radius: 5px;
-  z-index: 1000;
-}
-
-.custom-table {
-  width: 100%;
-}

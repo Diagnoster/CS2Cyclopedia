@@ -1,14 +1,6 @@
-<div class="container">
-  <footer>
+<footer>
     <div class="footer-content">
-      <span>See drop probabilities</span>
-      <img class="img" src="weapon_case.png" alt="Back Image" (mouseenter)="showTable()" (mouseleave)="hideTable()">
+      <p>&copy; 2025 Feito por Diagnoster.</p>
+      <p>Follow us on <a href="https://github.com/Diagnoster" target="_blank" rel="noopener noreferrer">GitHub</a>!</p>
     </div>
-  </footer>
-
-  @if(isTableVisible) {
-    <div class="table-container" [@slideUp]>
-      <app-weapon-case></app-weapon-case>
-    </div>
-  }
-</div>
+</footer>
