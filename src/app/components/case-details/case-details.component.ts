@@ -4,12 +4,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-case-details',
   imports: [
     CommonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    MatButtonModule
   ],
   templateUrl: './case-details.component.html',
   styleUrl: './case-details.component.css'

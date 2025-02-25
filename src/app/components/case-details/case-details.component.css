@@ -63,3 +63,12 @@ p {
   border-radius: 10px;
   cursor: pointer;
 }
+
+mat-card {
+  margin: 1%;
+  background-color: #13121291;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  width: 15rem;
+}

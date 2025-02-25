@@ -1,14 +1,12 @@
 <div class="container">
     <div class="content">
-        @if(container.contains) {
-            @if(container.contains.length > 0) {
-                <h3>Normal itens:</h3>
-                <div class="rare-column">
-                    @for(item of container.contains; track item) {
-                        <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
-                    }
-                </div>
-            }
+        @if(container.contains.length > 0) {
+            <h3>Normal itens:</h3>
+            <div class="rare-column">
+                @for(item of container.contains; track item) {
+                    <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
+                }
+            </div>           
             @if(container.contains_rare.length > 0) {
                 <h3>Rare itens:</h3>
                 <div class="rare-column">
@@ -23,8 +21,17 @@
         }
 
         <div class="info">
-            <p><b>Rental:</b> {{container.rental}}</p>
-            <p><b>Type:</b> {{container.type}}</p>
+            <mat-card appearance="outlined">
+                <mat-card-content><b>Rental:</b> {{container.rental}}</mat-card-content>
+            </mat-card>
+            @if(container.type != null) {
+                <mat-card appearance="outlined">
+                    <mat-card-content><b>Type:</b> {{container.type}}</mat-card-content>
+                </mat-card>
+            }
+            <mat-card appearance="outlined">
+                <mat-card-content><b>Date Sale</b>: {{container.first_sale_date}}</mat-card-content>
+            </mat-card>
         </div>
     </div>
     <div class="background-image" [ngStyle]="{'background-image': 'url(' + container.image + ')'}"></div>
