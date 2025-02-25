@@ -1,7 +1,12 @@
 <footer>
-    <div class="footer-content">
-      <img class="img" src="weapon_case.png" alt="Back Image" 
-           (mouseenter)="openModal()">
-    </div>
-  </footer>
-  
+  <div class="footer-content">
+    <span>See drop probabilities</span>
+    <img class="img" src="weapon_case.png" alt="Back Image" (mouseenter)="showTable()" (mouseleave)="hideTable()">
+  </div>
+</footer>
+
+@if(isTableVisible) {
+  <div class="table-container" [@slideUp]>
+    <app-weapon-case></app-weapon-case>
+  </div>
+}
