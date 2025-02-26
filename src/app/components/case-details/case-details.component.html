@@ -14,15 +14,27 @@
             </mat-card>
             @if(container.type === "Case") {
                 <div class="case-content">
-                    <mat-card appearance="outlined" (mouseenter)="showTable()" (mouseleave)="hideTable()">
+                    <mat-card appearance="outlined" (mouseenter)="showTable('case')" (mouseleave)="hideTable()">
+                        <mat-card-content><b>See drop probabilities</b><mat-icon>keyboard_arrow_down</mat-icon></mat-card-content>
+                    </mat-card>    
+                </div>
+            }
+            @if(container.type === "Souvenir") {
+                <div class="case-content">
+                    <mat-card appearance="outlined" (mouseenter)="showTable('souvenir')" (mouseleave)="hideTable()">
                         <mat-card-content><b>See drop probabilities</b><mat-icon>keyboard_arrow_down</mat-icon></mat-card-content>
                     </mat-card>    
                 </div>
             }
         </div>
-        @if(isTableVisible) {
+        @if(visibleTable === 'case') {
             <div class="table-container" [@slideUp]>
-              <app-weapon-case></app-weapon-case>
+                <app-weapon-case></app-weapon-case>
+            </div>
+        }
+        @if(visibleTable === 'souvenir') {
+            <div class="table-container" [@slideUp]>
+                <app-souvenir-case></app-souvenir-case>
             </div>
         }
         @if(container.contains.length > 0) {

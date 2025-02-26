@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { WeaponCaseComponent } from '../weapon-case/weapon-case.component';
+import { SouvenirCaseComponent } from '../souvenir-case/souvenir-case.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -18,7 +19,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    WeaponCaseComponent
+    WeaponCaseComponent,
+    SouvenirCaseComponent
   ],
   animations: [
     trigger('slideUp', [
@@ -37,7 +39,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class CaseDetailsComponent implements OnInit, OnDestroy {
 
   container: Container;
-  isTableVisible = false;
+  visibleTable: 'case' | 'souvenir' | null = null;
 
   constructor(private router: Router, private cs2Helper: Cs2HelperService) {
     const navigation = this.router.getCurrentNavigation();
@@ -60,13 +62,12 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
     this.cs2Helper.changeCaseImage(null);
   }
 
-  showTable() {
-    this.isTableVisible = true;
+  showTable(type: 'case' | 'souvenir') {
+    this.visibleTable = type;
   }
-
+  
   hideTable() {
-    this.isTableVisible = false;
+    this.visibleTable = null;
   }
-
   
 }
