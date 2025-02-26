@@ -31,4 +31,15 @@ export class Cs2HelperService {
       {raridade: 'Extremamente Raro', cor: 'Ouro', chances: 0.26, probabilidade: '1 em 385'}
     ];
   }
+
+  getSouvenirCases(): WeaponCase[] {
+    return [
+      { raridade: 'Grau de consumidor', cor: 'Cinza', chances: 80, probabilidade: '4 em 5' },
+      { raridade: 'Grau industrial', cor: 'Azul', chances: 16, probabilidade: '1 em 6' },
+      { raridade: 'Grau de especificação militar', cor: 'Azul escuro', chances: 3.2, probabilidade: '1 em 31' },
+      { raridade: 'Restrito', cor: 'Roxo', chances: 0.64, probabilidade: '1 em 156' },
+      { raridade: 'Classificado', cor: 'Rosa', chances: 0.128, probabilidade: '1 em 781' },
+      { raridade: 'Encoberto', cor: 'Vermelho', chances: 0.0256, probabilidade: '1 em 3906' }
+    ];
+  }  
 }
