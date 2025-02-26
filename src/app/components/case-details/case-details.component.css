@@ -99,7 +99,6 @@ img {
 }
 
 .table-container {
-  position: fixed;
   background-color: #333;
   border: 1px solid #000000;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);

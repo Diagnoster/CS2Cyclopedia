@@ -1,13 +1,6 @@
 <div class="container">
     <div class="content">
         <div class="info">
-            @if(container.type === "Case") {
-                <div class="case-content">
-                    <mat-card appearance="outlined" (mouseenter)="showTable()" (mouseleave)="hideTable()">
-                        <mat-card-content><b>See drop probabilities</b><mat-icon>keyboard_arrow_down</mat-icon></mat-card-content>
-                    </mat-card>    
-                </div>
-            }
             <mat-card appearance="outlined">
                 <mat-card-content><b>Rental:</b> {{container.rental}}</mat-card-content>
             </mat-card>
@@ -19,6 +12,13 @@
             <mat-card appearance="outlined">
                 <mat-card-content><b>Date Sale</b>: {{container.first_sale_date}}</mat-card-content>
             </mat-card>
+            @if(container.type === "Case") {
+                <div class="case-content">
+                    <mat-card appearance="outlined" (mouseenter)="showTable()" (mouseleave)="hideTable()">
+                        <mat-card-content><b>See drop probabilities</b><mat-icon>keyboard_arrow_down</mat-icon></mat-card-content>
+                    </mat-card>    
+                </div>
+            }
         </div>
         @if(isTableVisible) {
             <div class="table-container" [@slideUp]>
