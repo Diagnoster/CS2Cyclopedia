@@ -8,7 +8,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { WeaponCaseComponent } from '../weapon-case/weapon-case.component';
-import { SouvenirCaseComponent } from '../souvenir-case/souvenir-case.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -19,8 +18,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    WeaponCaseComponent,
-    SouvenirCaseComponent
+    WeaponCaseComponent
   ],
   animations: [
     trigger('slideUp', [
