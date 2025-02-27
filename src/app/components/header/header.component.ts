@@ -3,6 +3,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,7 @@ export class HeaderComponent {
   containerName: string = 'Cases';
   containerImage: string | null = null;
 
-  constructor(private cs2Helper: Cs2HelperService) { }
+  constructor(private cs2Helper: Cs2HelperService, private router: Router) { }
 
   ngOnInit(): void {
       this.cs2Helper.currentCaseName.subscribe(name => {
@@ -29,5 +30,9 @@ export class HeaderComponent {
       this.cs2Helper.currentCaseImage.subscribe(image => {
         this.containerImage = image;
       });
+  }
+
+  goToHome(): void {
+    this.router.navigate([`/`]);
   }
 }

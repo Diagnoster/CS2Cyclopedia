@@ -22,3 +22,11 @@ span {
     border-radius: 50%;
     margin-right: 8px;
 }
+
+.home-span {
+    cursor: pointer;
+}
+
+.home-span:hover {
+    color: rgb(190, 93, 190);
+}
