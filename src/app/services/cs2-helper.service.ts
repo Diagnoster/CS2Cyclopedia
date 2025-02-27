@@ -42,4 +42,13 @@ export class Cs2HelperService {
       { raridade: 'Encoberto', cor: 'Vermelho', chances: 0.0256, probabilidade: '1 em 3906' }
     ];
   }  
+
+  getStickersCases(): WeaponCase[] {
+    return [
+      {raridade: 'Alto grau', cor: 'Azul escuro', chances: 80, probabilidade: '4 em 5'},
+      {raridade: 'Notável', cor: 'Roxo', chances: 16, probabilidade: '1 em 6'},
+      {raridade: 'Exótico', cor: 'Rosa', chances: 3.2, probabilidade: '1 em 31'},
+      {raridade: 'Extraordinário', cor: 'Vermelho', chances: 0.641, probabilidade: '1 em 156'},
+    ];
+  }
 }

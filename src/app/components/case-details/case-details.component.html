@@ -26,6 +26,13 @@
                     </mat-card>    
                 </div>
             }
+            @if(container.type === "Sticker Capsule") {
+                <div class="case-content">
+                    <mat-card appearance="outlined" (mouseenter)="showTable('sticker')" (mouseleave)="hideTable()">
+                        <mat-card-content><b>See drop probabilities</b><mat-icon>keyboard_arrow_down</mat-icon></mat-card-content>
+                    </mat-card>    
+                </div>
+            }
         </div>
         @if(visibleTable === 'case') {
             <div class="table-container" [@slideUp]>
@@ -35,6 +42,11 @@
         @if(visibleTable === 'souvenir') {
             <div class="table-container" [@slideUp]>
                 <app-weapon-case [caseType]="'souvenir'"></app-weapon-case>
+            </div>
+        }
+        @if(visibleTable === 'sticker') {
+            <div class="table-container" [@slideUp]>
+                <app-weapon-case [caseType]="'sticker'"></app-weapon-case>
             </div>
         }
         @if(container.contains.length > 0) {

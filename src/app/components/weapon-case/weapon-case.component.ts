@@ -21,7 +21,7 @@ export interface WeaponCase {
 })
 
 export class WeaponCaseComponent implements OnInit {
-  @Input() caseType: 'weapon' | 'souvenir' = 'weapon';
+  @Input() caseType: 'weapon' | 'souvenir' | 'sticker' = 'weapon';
 
   colorMap: { [key: string]: string } = {};
 
@@ -46,7 +46,7 @@ export class WeaponCaseComponent implements OnInit {
         'Extremamente Raro': '#FFD700' // Ouro
       };
       this.weapon_case = this.cs2Helper.getWeaponCases();
-    } else {
+    } else if (this.caseType === 'souvenir') {
       this.colorMap = {
         'Grau de consumidor': '#A9A9A9', // Cinza escuro
         'Grau industrial': '#87CEEB', // Azul claro
@@ -56,6 +56,14 @@ export class WeaponCaseComponent implements OnInit {
         'Encoberto': '#FF0000' // Vermelho
       };
       this.weapon_case = this.cs2Helper.getSouvenirCases();
+    } else if (this.caseType === 'sticker') {
+      this.colorMap = {
+        'Alto grau	': '#4169E1', // Azul escuro
+        'Notável': '#800080', // Roxo
+        'Exótico': '#FF1493', // Rosa
+        'Extraordinário': '#FF0000', // Vermelho
+      };
+      this.weapon_case = this.cs2Helper.getStickersCases();
     }
     this.dataSource = this.weapon_case;
   }

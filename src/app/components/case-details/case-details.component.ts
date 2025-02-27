@@ -37,7 +37,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class CaseDetailsComponent implements OnInit, OnDestroy {
 
   container: Container;
-  visibleTable: 'case' | 'souvenir' | null = null;
+  visibleTable: 'case' | 'souvenir' | 'sticker' | null = null;
 
   constructor(private router: Router, private cs2Helper: Cs2HelperService) {
     const navigation = this.router.getCurrentNavigation();
@@ -60,7 +60,7 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
     this.cs2Helper.changeCaseImage(null);
   }
 
-  showTable(type: 'case' | 'souvenir') {
+  showTable(type: 'case' | 'souvenir' | 'sticker') {
     this.visibleTable = type;
   }
   
