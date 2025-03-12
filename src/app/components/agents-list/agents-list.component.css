@@ -8,7 +8,7 @@
 mat-card {
     width: 300px;
     height: auto;
-    min-height: 450px;
+    min-height: 380px;
     max-height: 450px;
     background-color: #24242491;
     border: none;
@@ -24,8 +24,26 @@ mat-card-subtitle {
 mat-card-content {
     display: table-column;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 mat-card-title {
     font-size: 20px;
 }
+
+.example-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .test {
+    display: flex;
+    margin-top: auto; 
+    background-color: red;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+  }
