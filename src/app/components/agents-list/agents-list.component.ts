@@ -23,8 +23,12 @@ export class AgentsListComponent implements OnInit {
 
   getAgents() {
     this.cs2ApiService.getAllAgents().subscribe((data: any) => {
-      this.agents = data.flat();
+      this.agents = data.flat().map((agent: any) => ({
+        ...agent,
+        name: agent.name.replace(/[\\()]/g, "").trim(), // Remove \, (, and )
+      }));
       console.log(this.agents);
     });
   }
+  
 }
