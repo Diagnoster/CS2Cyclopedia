@@ -17,7 +17,7 @@ export class Cs2ApiService {
     return this.http.get<any>(url);
   }
 
-  getAllAgents(): Observable<Agent> {
+  getAllAgents(): Observable<any> {
     const url = `${this.URL_BASE}/agents.json`;
     return this.http.get<any>(url);
   }

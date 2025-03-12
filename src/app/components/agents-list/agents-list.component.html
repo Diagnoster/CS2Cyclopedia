@@ -1,1 +1,16 @@
-<p>agents-list works!</p>
+<div class="container">
+    @for (agent of agents; track agent.name) {
+        <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{agent.name}}</mat-card-title>
+            </mat-card-header>
+            <img src="{{agent.image}}">
+            <mat-card-content>
+                <p>
+                    {{agent.description}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    }   
+</div>

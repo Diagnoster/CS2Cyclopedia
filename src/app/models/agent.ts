@@ -10,6 +10,7 @@ export class Agent {
         public team: BaseClass,
         public market_hash_name: string,
         public image: string,
-        public model_player: string
+        public model_player: string,
+        public description: string
     ) { }
 }

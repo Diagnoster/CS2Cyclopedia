@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    width: 300px;
+    height: auto;
+    max-height: 250px;
+    background-color: #24242491;
+    border: none;
+}
+
+p,
+mat-card-title,
+mat-card-subtitle {
+    color: white;
+}
