@@ -11,6 +11,7 @@ export class Agent {
         public market_hash_name: string,
         public image: string,
         public model_player: string,
-        public description: string
+        public description: string,
+        public faction: string
     ) { }
 }
