@@ -1,5 +1,18 @@
 <div class="container">
-    <mat-card>
-        
+    <mat-card class="details-container">
+        <mat-card class="asd">
+            <mat-card-header>
+                <mat-card-title>{{agent.name}}</mat-card-title>
+            </mat-card-header>
+            <img src="{{agent.image}}">
+            <mat-card-content>
+                <p class="name">Facção: {{agent.faction}}</p>
+                <p class="name">{{agent.team.name}}</p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card-content>
+            <h3>Description</h3>
+            <p class="name">{{agent.description}}</p>
+        </mat-card-content>
     </mat-card>
 </div>

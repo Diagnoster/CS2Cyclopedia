@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
+import { Agent } from '../../models/agent';
 
 @Component({
   selector: 'app-agent-details',
@@ -9,6 +11,19 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './agent-details.component.html',
   styleUrl: './agent-details.component.css'
 })
-export class AgentDetailsComponent {
+export class AgentDetailsComponent implements OnInit {
+  agent: Agent;
 
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.agent = navigation.extras.state['agent'];
+    } else {
+      this.agent = {} as Agent;
+    }
+  }
+
+  ngOnInit(): void {
+    console.log(this.agent);
+  }
 }

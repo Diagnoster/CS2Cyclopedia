@@ -13,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()), 
     provideAnimationsAsync(), 
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(withFetch())
   ]
 };
