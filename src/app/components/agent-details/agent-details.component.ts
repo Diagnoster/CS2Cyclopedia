@@ -5,13 +5,15 @@ import { Agent } from '../../models/agent';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { trigger, transition, style, animate } from '@angular/animations';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-agent-details',
   imports: [
     MatCardModule,
     NewlineToBrPipe,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
 ],
   templateUrl: './agent-details.component.html',
   styleUrl: './agent-details.component.css',

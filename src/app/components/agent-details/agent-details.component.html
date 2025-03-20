@@ -11,10 +11,10 @@
                 <mat-divider></mat-divider>
                 <h3>Equipe</h3>
                 @if(agent.team.id == 'terrorists') {
-                    <img class="team" src="tr_team.webp" alt="Icone site">
+                    <img class="team" src="tr_team.webp" matTooltip="{{agent.team.name}}" alt="Icone equipe">
                 }
                 @else {
-                    <img class="team" src="ct_team.webp" alt="Icone site">
+                    <img class="team" src="ct_team.webp" matTooltip="{{agent.team.name}}" alt="Icone equipe">
                 }
             </mat-card-content>
         </mat-card>
