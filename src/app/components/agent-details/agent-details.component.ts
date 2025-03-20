@@ -14,19 +14,23 @@ import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
   styleUrl: './agent-details.component.css'
 })
 export class AgentDetailsComponent implements OnInit {
-  agent: Agent;
+  agent!: Agent;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
+    console.log(navigation);
+
+    if (navigation?.extras.state?.['agent']) {
       this.agent = navigation.extras.state['agent'];
     } else {
-      this.agent = {} as Agent;
+      this.router.navigate(['/agents']);
     }
   }
 
   ngOnInit(): void {
     console.log(this.agent);
-    console.log(this.agent.description);
+    if (!this.agent) {
+      console.error('Agent is not available!');
+    }
   }
 }
