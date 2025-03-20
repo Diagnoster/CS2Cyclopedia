@@ -6,12 +6,14 @@
             </mat-card-header>
             <img src="{{agent.image}}">
             <mat-card-content>
-                <p class="name">Facção: {{agent.faction}}</p>
+                <h3>Facção</h3>
+                <p class="name">{{agent.faction}}</p>
+                <h3>Equipe</h3>
                 <p class="name">{{agent.team.name}}</p>
             </mat-card-content>
         </mat-card>
         <mat-card-content>
-            <h3>Description</h3>
+            <h3>Descrição</h3>
             <p class="name">{{agent.description}}</p>
         </mat-card-content>
     </mat-card>

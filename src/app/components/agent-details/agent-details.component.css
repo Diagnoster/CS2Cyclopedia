@@ -21,7 +21,7 @@ mat-card-title {
 }
 
 .asd {
-    background-color: red;
+    background-color: #24242491;
     width: 400px;
     height: auto;
 }
@@ -32,6 +32,9 @@ mat-card-title {
     align-items: center;
 }
 
-.name {
+.name, h3 {
     color: white;
+    text-align: center;
 }
+
+
