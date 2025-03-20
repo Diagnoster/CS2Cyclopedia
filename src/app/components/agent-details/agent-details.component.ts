@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { Agent } from '../../models/agent';
+import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 
 @Component({
   selector: 'app-agent-details',
   imports: [
-    MatCardModule
-  ],
+    MatCardModule,
+    NewlineToBrPipe
+],
   templateUrl: './agent-details.component.html',
   styleUrl: './agent-details.component.css'
 })
@@ -25,5 +27,6 @@ export class AgentDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.agent);
+    console.log(this.agent.description);
   }
 }

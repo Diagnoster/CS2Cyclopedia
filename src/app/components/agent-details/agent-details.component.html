@@ -19,7 +19,7 @@
         </mat-card>
         <mat-card-content>
             <h3>Descrição</h3>
-            <p class="name">{{agent.description}}</p>
+            <div class="name" [innerHTML]="agent.description | newlineToBr"></div>
         </mat-card-content>
     </mat-card>
 </div>
