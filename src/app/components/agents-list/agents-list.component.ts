@@ -4,6 +4,7 @@ import { Agent } from '../../models/agent';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { Router } from '@angular/router';
+import { Cs2HelperService } from '../../services/cs2-helper.service';
 
 @Component({
   selector: 'app-agents-list',
@@ -17,9 +18,10 @@ import { Router } from '@angular/router';
 export class AgentsListComponent implements OnInit {
   agents: Agent[] = [];
 
-  constructor(private cs2ApiService: Cs2ApiService, private router: Router) { }
+  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) { }
 
   ngOnInit(): void {
+    this.cs2Helper.changeCaseName('Agents');
     this.getAgents();
     console.log(this.agents);
   }

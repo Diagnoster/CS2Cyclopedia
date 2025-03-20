@@ -25,6 +25,7 @@ export class HeaderComponent {
   ngOnInit(): void {
       this.cs2Helper.currentCaseName.subscribe(name => {
       this.containerName = name;
+      console.log(this.containerName);
     });
 
       this.cs2Helper.currentCaseImage.subscribe(image => {
