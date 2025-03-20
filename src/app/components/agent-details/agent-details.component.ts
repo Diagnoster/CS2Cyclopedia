@@ -4,12 +4,14 @@ import { Router } from '@angular/router';
 import { Agent } from '../../models/agent';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { trigger, transition, style, animate } from '@angular/animations';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-agent-details',
   imports: [
     MatCardModule,
-    NewlineToBrPipe
+    NewlineToBrPipe,
+    MatDividerModule
 ],
   templateUrl: './agent-details.component.html',
   styleUrl: './agent-details.component.css',

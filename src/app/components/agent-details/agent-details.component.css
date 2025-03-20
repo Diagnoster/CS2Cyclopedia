@@ -1,7 +1,7 @@
 mat-card {
     display: flex;
     width: 100%;
-    height: 600px;
+    height: 580px;
     background-color: rgb(39, 39, 39);
     border: none;
     box-shadow: none;
@@ -10,6 +10,7 @@ mat-card {
 .details-container {
     display: flex;
     flex-direction: row;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 img {
@@ -18,7 +19,7 @@ img {
 }
 
 mat-card-title {
-    color: white;
+    color: rgb(231, 221, 160);
 }
 
 .asd {
@@ -46,4 +47,9 @@ mat-card-title {
 
 .mat-mdc-card-content {
     text-align: center;
+}
+
+mat-divider {
+    color: white;
+    opacity: 0.2;
 }

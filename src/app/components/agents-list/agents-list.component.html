@@ -1,6 +1,6 @@
 <div class="container">
     @for (agent of agents; track agent.id) {
-        <mat-card class="example-card" appearance="outlined" (click)="goToDetails(agent)">
+        <mat-card class="example-card" appearance="outlined" (click)="goToDetails(agent)" @fadeInDownBig>
             <mat-card-header>
                 <mat-card-title>{{agent.faction}}</mat-card-title>
                 <mat-divider></mat-divider>

@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-agents-list',
@@ -13,7 +14,15 @@ import { Cs2HelperService } from '../../services/cs2-helper.service';
     MatDividerModule
   ],
   templateUrl: './agents-list.component.html',
-  styleUrl: './agents-list.component.css'
+  styleUrl: './agents-list.component.css',
+  animations: [
+    trigger('fadeInDownBig', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-100px)' }),
+        animate('800ms cubic-bezier(0.23, 1, 0.32, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
+      ])
+    ])
+  ]
 })
 export class AgentsListComponent implements OnInit {
   agents: Agent[] = [];

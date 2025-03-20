@@ -4,6 +4,7 @@ import { Cs2ApiService } from '../../services/cs2-api.service';
 import { Container } from '../../models/container';
 import { Router } from '@angular/router';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-case-list',
@@ -11,7 +12,15 @@ import { Cs2HelperService } from '../../services/cs2-helper.service';
     MatCardModule
   ],
   templateUrl: './case-list.component.html',
-  styleUrl: './case-list.component.css'
+  styleUrl: './case-list.component.css',
+  animations: [
+    trigger('fadeInDown', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-20px)' }),
+        animate('600ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ])
+    ])
+  ]
 })
 export class CaseListComponent implements OnInit {
 
