@@ -3,6 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { Agent } from '../../models/agent';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-agent-details',
@@ -11,7 +12,15 @@ import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
     NewlineToBrPipe
 ],
   templateUrl: './agent-details.component.html',
-  styleUrl: './agent-details.component.css'
+  styleUrl: './agent-details.component.css',
+  animations: [
+    trigger('slideIn', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 0 }), // Start <- to ->
+        animate('500ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class AgentDetailsComponent implements OnInit {
   agent!: Agent;
