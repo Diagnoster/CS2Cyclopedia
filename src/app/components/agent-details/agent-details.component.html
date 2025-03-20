@@ -9,7 +9,12 @@
                 <h3>Facção</h3>
                 <p class="name">{{agent.faction}}</p>
                 <h3>Equipe</h3>
-                <p class="name">{{agent.team.name}}</p>
+                @if(agent.team.id == 'terrorists') {
+                    <img class="team" src="tr_team.webp" alt="Icone site">
+                }
+                @else {
+                    <img class="team" src="ct_team.webp" alt="Icone site">
+                }
             </mat-card-content>
         </mat-card>
         <mat-card-content>

@@ -37,4 +37,11 @@ mat-card-title {
     text-align: center;
 }
 
+.team {
+    width: 65px;
+    height: auto;
+}
 
+.mat-mdc-card-content {
+    text-align: center;
+}
