@@ -31,7 +31,7 @@ mat-card {
 mat-card-title {
     color: rgb(231, 221, 160);
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .info {
@@ -112,7 +112,7 @@ h3 {
     margin-bottom: 2%;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
     .desc-details {
         width: 60%;
     }

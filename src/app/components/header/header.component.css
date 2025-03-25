@@ -52,3 +52,9 @@ span {
 .menu-item:last-child {
     margin-right: 0;
 }
+
+@media (max-width: 700px) {
+    .home-span {
+        font-size: 16px;
+    }
+}
