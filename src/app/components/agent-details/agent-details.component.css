@@ -45,6 +45,11 @@ mat-card-title {
     height: auto;
 }
 
+.operation-img {
+    width: 150px;
+    height: auto;
+}
+
 .mat-mdc-card-content {
     text-align: center;
 }
@@ -52,4 +57,17 @@ mat-card-title {
 mat-divider {
     color: white;
     opacity: 0.2;
+}
+
+.rarity {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: white;
 }
