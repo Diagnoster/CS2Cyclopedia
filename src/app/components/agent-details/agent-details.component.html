@@ -19,14 +19,16 @@
             </mat-card-content>
         </mat-card>
         <mat-card-content>
-
             <h3>Descrição</h3>
+            <mat-divider class="desc-divider"></mat-divider>
             <div class="name" [innerHTML]="agent.description | newlineToBr"></div>
             @for(collec of agent.collections; track collec) {
-                <h3>{{collec.name}}</h3>
-                <img class="operation-img" src="{{collec.image}}">    
+                <h3>Coleção</h3>
+                <div class="collect">
+                    <img class="operation-img" src="{{collec.image}}">    
+                    <p>{{collec.name}}</p>
+                </div>
             }
-
         </mat-card-content>
     </mat-card>
 </div>
