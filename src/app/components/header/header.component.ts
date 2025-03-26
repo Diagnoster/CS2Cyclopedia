@@ -40,4 +40,8 @@ export class HeaderComponent {
   goToAgents(): void {
     this.router.navigate([`/agents`]);
   }
+
+  goToCases(): void {
+    this.router.navigate([`/`]);
+  }
 }
