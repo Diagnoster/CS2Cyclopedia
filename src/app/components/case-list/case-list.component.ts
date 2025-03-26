@@ -5,11 +5,13 @@ import { Container } from '../../models/container';
 import { Router } from '@angular/router';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { BaseFilterComponent } from '../base-filter/base-filter.component';
 
 @Component({
   selector: 'app-case-list',
   imports: [
-    MatCardModule
+    MatCardModule,
+    BaseFilterComponent
   ],
   templateUrl: './case-list.component.html',
   styleUrl: './case-list.component.css',
@@ -23,17 +25,16 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class CaseListComponent implements OnInit {
-
   case: Container[] = [];
+  allCases: Container[] = [];
 
-  constructor(private csApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) {
-
-  }
+  constructor(private csApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) {}
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Cases');
-    this.csApiService.getAllCases().subscribe( (data: any) => {
-      this.case = data;
+    this.csApiService.getAllCases().subscribe((data: any) => {
+      this.allCases = data;
+      this.case = [...this.allCases];
     });  
   }
 
@@ -44,6 +45,4 @@ export class CaseListComponent implements OnInit {
       console.error('Navigation error', err);
     });
   }
-  
-  
 }

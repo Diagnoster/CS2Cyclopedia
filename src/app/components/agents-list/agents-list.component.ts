@@ -39,14 +39,13 @@ import { BaseFilterComponent } from '../base-filter/base-filter.component';
 export class AgentsListComponent implements OnInit {
   agents: Agent[] = [];
   allAgents: Agent[] = [];
-  value = '';
 
   constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) {}
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Agents');
     this.getAgents();
-  }
+  } 
 
   getAgents() {
     this.cs2ApiService.getAllAgents().subscribe((data: any) => {
@@ -59,26 +58,9 @@ export class AgentsListComponent implements OnInit {
     });
   }
 
-  filterAgents() {
-    const searchValue = this.value.toLowerCase();
-    this.agents = this.allAgents.filter(agent =>
-      agent.name.toLowerCase().includes(searchValue)
-    );
-  }
-
-  clearFilter() {
-    this.value = '';
-    this.agents = [...this.allAgents];
-  }
-
   goToDetails(agent: Agent): void {
     this.router.navigate(['/agent-details'], { state: { agent } }).then(() => {
       console.log('Navigation complete');
     }).catch(err => console.error('Navigation error', err));
   }
-
-  trackAgent(agent: Agent): string {
-    return agent.id;
-  }
-
 }
