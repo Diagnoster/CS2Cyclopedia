@@ -6,12 +6,22 @@ import { MatDividerModule } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-agents-list',
   imports: [
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './agents-list.component.html',
   styleUrl: './agents-list.component.css',
@@ -26,6 +36,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class AgentsListComponent implements OnInit {
   agents: Agent[] = [];
+  value = 'Clear me';
 
   constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) { }
 

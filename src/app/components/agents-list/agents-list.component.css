@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 mat-card {
@@ -58,4 +59,9 @@ mat-card-title {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
     transform: scale(1.10);
     cursor: pointer;
+}
+
+.filter {
+  width: 90%;
+  margin: 0 auto;
 }
