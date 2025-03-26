@@ -36,40 +36,47 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class AgentsListComponent implements OnInit {
   agents: Agent[] = [];
-  value = 'Clear me';
+  allAgents: Agent[] = [];
+  value = '';
 
-  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) { }
+  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) {}
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Agents');
     this.getAgents();
-    console.log(this.agents);
   }
 
   getAgents() {
     this.cs2ApiService.getAllAgents().subscribe((data: any) => {
-      this.agents = data.flat().map((agent: any) => {
-
-        const cleanedName = agent.name.replace(/[\\()]/g, "").trim(); // Remove \, (, and )
-        const [name, faction] = cleanedName.split(' | '); // Separate name and faction
-
-        return {
-          ...agent,
-          name: name,
-          faction: faction,
-        };
+      this.allAgents = data.flat().map((agent: any) => {
+        const cleanedName = agent.name.replace(/[\\()]/g, '').trim();
+        const [name, faction] = cleanedName.split(' | ');
+        return { ...agent, name, faction };
       });
-      console.log(this.agents);
+      this.agents = [...this.allAgents];
     });
+  }
+
+  filterAgents() {
+    const searchValue = this.value.toLowerCase();
+    this.agents = this.allAgents.filter(agent =>
+      agent.name.toLowerCase().includes(searchValue)
+    );
+  }
+
+  clearFilter() {
+    this.value = '';
+    this.agents = [...this.allAgents];
   }
 
   goToDetails(agent: Agent): void {
     this.router.navigate(['/agent-details'], { state: { agent } }).then(() => {
       console.log('Navigation complete');
-    }).catch(err => {
-      console.error('Navigation error', err);
-    });
+    }).catch(err => console.error('Navigation error', err));
   }
 
+  trackAgent(agent: Agent): string {
+    return agent.id;
+  }
 
 }
