@@ -6,11 +6,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
 import { trigger, transition, style, animate } from '@angular/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {FormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { BaseFilterComponent } from '../base-filter/base-filter.component';
 
 @Component({
   selector: 'app-agents-list',
@@ -21,8 +22,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     FormsModule,
     MatButtonModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    BaseFilterComponent
+],
   templateUrl: './agents-list.component.html',
   styleUrl: './agents-list.component.css',
   animations: [
