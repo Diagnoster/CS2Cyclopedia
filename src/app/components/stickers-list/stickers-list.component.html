@@ -1,6 +1,6 @@
 <div class="container">
     @for(sticker of stickers; track sticker.name) {
-        <mat-card class="example-card" appearance="outlined"g>
+        <mat-card class="example-card" appearance="outlined" @fadeInDownBig>
             <mat-card-header>
                 <mat-card-title>{{sticker.name}}</mat-card-title>
                 <mat-divider></mat-divider>
@@ -8,7 +8,14 @@
             <img src="{{sticker.image}}">
             <mat-card-content>
                 <p class="name">{{sticker.effect}}</p>
-                <p>{{sticker.rarity.name}}</p>
+                @if(sticker.tournament_event) {
+                    <p>{{sticker.tournament_event}}</p>
+                }
+                @else if (sticker.crates.length > 0) {
+                    @for(crate of sticker.crates; track crate.name) {
+                        <p>{{crate.name}}</p>
+                    }
+                }
             </mat-card-content>
             <div class="test" [style.background-color]="sticker.rarity.color">
                 <p>{{sticker.rarity.name}}</p>

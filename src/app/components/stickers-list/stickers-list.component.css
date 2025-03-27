@@ -50,7 +50,7 @@
     justify-content: center;
   }
   
-  .name {
+  .name, mat-card-title {
     color: rgb(231, 221, 160);
   }
   
