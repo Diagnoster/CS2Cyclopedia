@@ -1,25 +1,34 @@
 <div class="container" (window:scroll)="onScroll()">
-    @for(sticker of stickers; track sticker.name) {
-        <mat-card class="example-card" appearance="outlined" @fadeInDownBig>
-            <mat-card-header>
-                <mat-card-title>{{sticker.name}}</mat-card-title>
-                <mat-divider></mat-divider>
-            </mat-card-header>
-            <img src="{{sticker.image}}">
-            <mat-card-content>
-                <p class="name">{{sticker.effect}}</p>
-                @if(sticker.tournament_event) {
-                    <p>{{sticker.tournament_event}}</p>
-                }
-                @else if (sticker.crates.length > 0) {
-                    @for(crate of sticker.crates; track crate.name) {
-                        <p>{{crate.name}}</p>
+    <mat-form-field class="filter">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" [(ngModel)]="searchTerm" (input)="filterStickers()"  placeholder="Pesquisar stickers...">
+    </mat-form-field>
+    @if(isLoading) {
+        <mat-spinner></mat-spinner>
+    } 
+    @else {
+        @for(sticker of stickers; track sticker.name) {
+            <mat-card class="example-card" appearance="outlined" @fadeInDownBig>
+                <mat-card-header>
+                    <mat-card-title>{{sticker.name}}</mat-card-title>
+                    <mat-divider></mat-divider>
+                </mat-card-header>
+                <img src="{{sticker.image}}">
+                <mat-card-content>
+                    <p class="name">{{sticker.effect}}</p>
+                    @if(sticker.tournament_event) {
+                        <p>{{sticker.tournament_event}}</p>
                     }
-                }
-            </mat-card-content>
-            <div class="test" [style.background-color]="sticker.rarity.color">
-                <p>{{sticker.rarity.name}}</p>
-            </div>
-        </mat-card>
+                    @else if (sticker.crates.length > 0) {
+                        @for(crate of sticker.crates; track crate.name) {
+                            <p>{{crate.name}}</p>
+                        }
+                    }
+                </mat-card-content>
+                <div class="test" [style.background-color]="sticker.rarity.color">
+                    <p>{{sticker.rarity.name}}</p>
+                </div>
+            </mat-card>
+        }
     }
 </div>

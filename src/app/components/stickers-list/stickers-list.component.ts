@@ -5,12 +5,25 @@ import { Sticker } from '../../models/sticker';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { BaseFilterComponent } from '../base-filter/base-filter.component';
+import { FormsModule } from '@angular/forms';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-stickers-list',
   imports: [
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './stickers-list.component.html',
   styleUrl: './stickers-list.component.css',
@@ -27,6 +40,10 @@ export class StickersListComponent implements OnInit {
   stickers: Sticker[] = [];
   allStickers: Sticker[] = [];
   loadedCount: number = 50;
+  searchTerm: string = '';
+  isSearching: boolean = false; // lazy loading
+  searchTimeout: any;
+  isLoading: boolean = true;
 
   constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService) {}
 
@@ -35,12 +52,15 @@ export class StickersListComponent implements OnInit {
     this.cs2Service.getAllStickers().subscribe((data: any) => {
       this.allStickers = data;
       this.loadMoreStickers(); // loading 50 stickers
+      this.isLoading = false;
     });
   }
 
   loadMoreStickers(): void {
-    const nextBatch = this.allStickers.slice(this.stickers.length, this.stickers.length + this.loadedCount);
-    this.stickers = [...this.stickers, ...nextBatch];
+    if(this.searchTerm == '') {
+      const nextBatch = this.allStickers.slice(this.stickers.length, this.stickers.length + this.loadedCount);
+      this.stickers = [...this.stickers, ...nextBatch];
+    }
   }
 
   onScroll(): void {
@@ -52,5 +72,22 @@ export class StickersListComponent implements OnInit {
       this.loadMoreStickers();
     }
   }
+
+  filterStickers(): void {
+    clearTimeout(this.searchTimeout);
+  
+    this.searchTimeout = setTimeout(() => {
+      if (this.searchTerm.trim()) {
+        this.isSearching = true;
+        this.stickers = this.allStickers.filter(sticker =>
+          sticker.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      } else {
+        this.isSearching = false;
+        this.stickers = [];
+        this.loadMoreStickers();
+      }
+    }, 500);
+  }
+  
 
 }
