@@ -44,4 +44,8 @@ export class HeaderComponent {
   goToCases(): void {
     this.router.navigate([`/`]);
   }
+
+  goToStickers(): void {
+    this.router.navigate([`/stickers`]);
+  }
 }

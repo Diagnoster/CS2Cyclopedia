@@ -21,4 +21,9 @@ export class Cs2ApiService {
     const url = `${this.URL_BASE}/agents.json`;
     return this.http.get<any>(url);
   }
+
+  getAllStickers(): Observable<any> {
+    const url = `${this.URL_BASE}/stickers.json`;
+    return this.http.get<any>(url);
+  }
 }
