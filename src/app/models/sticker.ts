@@ -1,3 +1,4 @@
+import { Crate } from "./crate";
 import { Rarity } from "./rarity";
 
 export class Sticker {
@@ -6,7 +7,7 @@ export class Sticker {
         public name: string,
         public description: string,
         public rarity: Rarity,
-        public crates: Crates[],
+        public crates: Crate[],
         public tournament_event: string,
         public tournament_team: string,
         public type: string,
