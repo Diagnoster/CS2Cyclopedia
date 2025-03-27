@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" (window:scroll)="onScroll()">
     @for(sticker of stickers; track sticker.name) {
         <mat-card class="example-card" appearance="outlined" @fadeInDownBig>
             <mat-card-header>
