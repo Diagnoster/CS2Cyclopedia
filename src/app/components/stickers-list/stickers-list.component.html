@@ -1,14 +1,14 @@
 <div class="container" (window:scroll)="onScroll()">
     <mat-form-field class="filter">
         <mat-icon matPrefix>search</mat-icon>
-        <input matInput type="text" [(ngModel)]="searchTerm" (input)="filterStickers()"  placeholder="Pesquisar stickers...">
+        <input matInput type="text" [(ngModel)]="searchTerm" (input)="filterStickers()" placeholder="Pesquisar stickers...">
     </mat-form-field>
     @if(isLoading) {
         <mat-spinner></mat-spinner>
     } 
     @else {
         @for(sticker of stickers; track sticker.name) {
-            <mat-card class="example-card" appearance="outlined" @fadeInDownBig>
+            <mat-card class="example-card" appearance="outlined" (click)="goToDetails(sticker)" @fadeInDownBig>
                 <mat-card-header>
                     <mat-card-title>{{sticker.name}}</mat-card-title>
                     <mat-divider></mat-divider>

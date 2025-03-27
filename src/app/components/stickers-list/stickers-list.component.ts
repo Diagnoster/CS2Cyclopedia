@@ -7,11 +7,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { BaseFilterComponent } from '../base-filter/base-filter.component';
 import { FormsModule } from '@angular/forms';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stickers-list',
@@ -45,7 +46,7 @@ export class StickersListComponent implements OnInit {
   searchTimeout: any;
   isLoading: boolean = true;
 
-  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService) {}
+  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router) { }
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Stickers');
@@ -57,7 +58,7 @@ export class StickersListComponent implements OnInit {
   }
 
   loadMoreStickers(): void {
-    if(this.searchTerm == '') {
+    if (this.searchTerm == '') {
       const nextBatch = this.allStickers.slice(this.stickers.length, this.stickers.length + this.loadedCount);
       this.stickers = [...this.stickers, ...nextBatch];
     }
@@ -67,7 +68,7 @@ export class StickersListComponent implements OnInit {
     const scrollPosition = window.pageYOffset + window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
     const scrollPercentage = (scrollPosition / documentHeight) * 100;
-  
+
     if (scrollPercentage > 90) {
       this.loadMoreStickers();
     }
@@ -75,7 +76,7 @@ export class StickersListComponent implements OnInit {
 
   filterStickers(): void {
     clearTimeout(this.searchTimeout);
-  
+
     this.searchTimeout = setTimeout(() => {
       if (this.searchTerm.trim()) {
         this.isSearching = true;
@@ -88,6 +89,12 @@ export class StickersListComponent implements OnInit {
       }
     }, 500);
   }
-  
+
+  goToDetails(sticker: Sticker): void {
+    this.router.navigate(['/sticker-details'], { state: { sticker } }).then(() => {
+      console.log('Navigation complete');
+    }).catch(err => console.error('Navigation error', err));
+  }
+
 
 }
