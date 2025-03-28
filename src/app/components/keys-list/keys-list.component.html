@@ -1,0 +1,23 @@
+<div class="container">
+    <app-base-filter class="filter" [items]="allKeys" [fieldName]="'name'"
+        (filteredItems)="keys = $event"></app-base-filter>
+    @for (key of keys; track key.id) {
+    <mat-card class="key-card" appearance="outlined" @fadeInDownBig>
+        <mat-card-header>
+            <mat-card-title>
+                {{key.name}}
+            </mat-card-title>
+            <mat-divider></mat-divider>
+        </mat-card-header>
+        <img src="{{key.image}}">
+        <mat-card-content>
+            <div class="name" [innerHTML]="key.description | newlineToBr"></div>
+        </mat-card-content>
+        <div class="test">
+            @for(crate of key.crates; track crate) {
+            <img class="crate-img" src="{{crate.image}}">
+            }
+        </div>
+    </mat-card>
+    }
+</div>
