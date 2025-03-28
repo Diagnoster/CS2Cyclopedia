@@ -48,4 +48,8 @@ export class HeaderComponent {
   goToStickers(): void {
     this.router.navigate([`/stickers`]);
   }
+
+  goToKeys(): void {
+    this.router.navigate([`/keys`]);
+  }
 }
