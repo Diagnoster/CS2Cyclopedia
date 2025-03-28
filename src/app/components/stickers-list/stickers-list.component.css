@@ -33,7 +33,7 @@
     font-size: 20px;
   }
   
-  .example-card {
+  .sticker-card {
     display: flex;
     flex-direction: column;
     height: 100%;

@@ -33,7 +33,7 @@ mat-card-title {
   font-size: 20px;
 }
 
-.example-card {
+.agent-card {
   display: flex;
   flex-direction: column;
   height: 100%;
