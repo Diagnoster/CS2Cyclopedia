@@ -18,14 +18,15 @@ export class KeysListComponent implements OnInit {
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Keys');
     this.getAgents();
+    console.log(this.keys);
   }
 
   getAgents() {
     this.cs2apiService.getAllKeys().subscribe((data: any) => {
       this.allKeys = data.flat().map((key: any) => {
         const cleanedName = key.name.replace(/[\\()]/g, '').trim();
-        const [name, faction] = cleanedName.split(' | ');
-        return { ...key, name, faction };
+        const [name] = cleanedName.split(' | ');
+        return { ...key, name };
       });
       this.keys = [...this.allKeys];
     });
