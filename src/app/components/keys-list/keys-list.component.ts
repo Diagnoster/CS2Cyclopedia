@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-keys-list',
@@ -43,7 +44,7 @@ export class KeysListComponent implements OnInit {
   keys: Key[] = [];
   allKeys: Key[] = [];
 
-  constructor(private cs2apiService: Cs2ApiService, private cs2Helper: Cs2HelperService) { }
+  constructor(private cs2apiService: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router) { }
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Keys');
@@ -62,5 +63,8 @@ export class KeysListComponent implements OnInit {
     });
   }
 
+  goToCases(): void {
+    this.router.navigate([`/`]);
+  }
 
 }
