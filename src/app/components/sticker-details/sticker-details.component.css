@@ -5,6 +5,7 @@
     background-color: rgb(39, 39, 39);
     display: flex;
     border-radius: 10px;
+    margin-bottom: 3%;
 }
 
 .info {
@@ -14,6 +15,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    margin: 1%;
 }
 
 .details {
@@ -23,15 +25,20 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    margin: 1%;
 }
 
-.name, h3, p {
+.name,
+h3,
+p {
     text-align: center;
     color: white;
 }
 
-h3, h2 {
+h3,
+h2 {
     color: rgb(231, 221, 160);
+    text-align: center;
 }
 
 .raridade {
@@ -52,18 +59,74 @@ mat-divider {
     opacity: 0.2;
 }
 
-
 .line {
     border-bottom: 1px solid rgb(128, 126, 126);
     width: calc(100% - 4%);
     margin-bottom: 2%;
-  }
+}
 
-  .off-icon {
+.off-icon {
     color: white;
-  }
+}
 
-  .sticker-img {
+.sticker-img {
     width: 340px;
     height: auto;
-  }
+}
+
+@media (max-width: 1300px) {
+    .sticker-img {
+        width: 250px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 950px) {
+    .sticker-img {
+        width: 230px;
+    }
+
+    .title {
+        font-size: 19px;
+    }
+
+    .info {
+        width: 35%;
+    }
+
+    .details {
+        width: 65%;
+    }
+}
+
+@media (max-width: 950px) {
+    .sticker-img {
+        width: 190px;
+    }
+}
+
+@media (max-width: 770px) {
+    .title {
+        font-size: 22px;
+    }
+
+    .sticker-img {
+        width: 300px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .info, .details {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
