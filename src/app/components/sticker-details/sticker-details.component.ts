@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-sticker-details',
@@ -14,7 +15,15 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './sticker-details.component.html',
-  styleUrl: './sticker-details.component.css'
+  styleUrl: './sticker-details.component.css',
+    animations: [
+      trigger('slideIn', [
+        transition(':enter', [
+          style({ transform: 'translateX(-100%)', opacity: 0 }), // Start <- to ->
+          animate('500ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+        ])
+      ])
+    ]
 })
 export class StickerDetailsComponent implements OnInit {
   sticker!: Sticker;
