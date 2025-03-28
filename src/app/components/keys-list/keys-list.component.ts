@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-keys-list',
@@ -24,7 +25,8 @@ import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
     MatButtonModule,
     MatIconModule,
     BaseFilterComponent,
-    NewlineToBrPipe
+    NewlineToBrPipe,
+    MatTooltipModule
 ],
   templateUrl: './keys-list.component.html',
   styleUrl: './keys-list.component.css',

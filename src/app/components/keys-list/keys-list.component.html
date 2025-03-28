@@ -15,7 +15,7 @@
                     <div class="name" [innerHTML]="key.description | newlineToBr"></div>
                     <h2>Caixas</h2>
                     @for(crate of key.crates; track crate) {
-                        <img class="crate-img" src="{{crate.image}}">
+                        <img class="crate-img" src="{{crate.image}}" matTooltip="{{crate.name}}">
                     }
                 </div>
             </div>
