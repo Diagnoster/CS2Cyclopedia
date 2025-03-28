@@ -1,8 +1,27 @@
 <div class="container">
     <div class="info">
-
+        <h2>{{sticker.name}}</h2>
+        <div class="line"></div>
+        <img class="sticker-img" src="{{sticker.image}}">
+        <h2>Torneio</h2>
+        @if(sticker.tournament_event) {
+            <p>{{sticker.tournament_event}}</p>
+        }
+        @else {
+            <mat-icon class="off-icon">highlight_off</mat-icon>
+        }
+        <h2>Efeito</h2>
+        <p>{{sticker.effect}}</p>
     </div>
     <div class="details">
-        
+        <h2>Descrição</h2>
+        <div class="line"></div>
+        <div class="name" [innerHTML]="sticker.description | newlineToBr"></div>
+        <h2>Tipo</h2>
+        <p>{{sticker.type}}</p>
+        <h2>Raridade</h2>
+        <div class="raridade" [style.background-color]="sticker.rarity.color">
+            <p class="rarity-name">{{sticker.rarity.name}}</p>
+        </div>
     </div>
 </div>

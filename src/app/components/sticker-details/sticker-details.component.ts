@@ -1,11 +1,39 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Sticker } from '../../models/sticker';
+import { Router } from '@angular/router';
+import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-sticker-details',
-  imports: [],
+  imports: [
+    NewlineToBrPipe,
+    MatDividerModule,
+    MatIconModule
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './sticker-details.component.html',
   styleUrl: './sticker-details.component.css'
 })
-export class StickerDetailsComponent {
+export class StickerDetailsComponent implements OnInit {
+  sticker!: Sticker;
 
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    console.log(navigation);
+
+    if (navigation?.extras.state?.['sticker']) {
+      this.sticker = navigation.extras.state['sticker'];
+    } else {
+      this.router.navigate(['/stickers']);
+    }
+  }
+
+  ngOnInit(): void {
+    console.log(this.sticker);
+    if (!this.sticker) {
+      console.error('Sticker is not available!');
+    }
+  }
 }
