@@ -3,8 +3,8 @@
         <mat-icon matPrefix>search</mat-icon>
         <input matInput type="text" [(ngModel)]="searchTerm" (input)="filterStickers()" placeholder="Pesquisar stickers...">
     </mat-form-field>
-    @if(isLoading) {
-        <mat-spinner></mat-spinner>
+    @if(!isLoading) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     } 
     @else {
         @for(sticker of stickers; track sticker.name) {

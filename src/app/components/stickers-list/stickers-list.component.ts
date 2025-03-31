@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-stickers-list',
@@ -24,7 +25,7 @@ import { Router } from '@angular/router';
     FormsModule,
     MatButtonModule,
     MatInputModule,
-    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   templateUrl: './stickers-list.component.html',
   styleUrl: './stickers-list.component.css',

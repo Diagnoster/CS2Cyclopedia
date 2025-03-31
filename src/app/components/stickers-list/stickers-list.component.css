@@ -70,6 +70,8 @@
     border-radius: 10px !important;
   }
 
-  mat-spinner {
-    color: white;
+  mat-progress-bar {
+    width: 90%;
+    margin: 0 auto;
+    background-color: none;
   }
