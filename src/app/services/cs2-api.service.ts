@@ -31,4 +31,9 @@ export class Cs2ApiService {
     const url = `${this.URL_BASE}/keys.json`;
     return this.http.get<any>(url);
   }
+
+  getAllPatches(): Observable<any> {
+    const url = `${this.URL_BASE}/patches.json`;
+    return this.http.get<any>(url);
+  }
 }

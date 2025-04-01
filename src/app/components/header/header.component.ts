@@ -52,4 +52,8 @@ export class HeaderComponent {
   goToKeys(): void {
     this.router.navigate([`/keys`]);
   }
+
+  goToPatches(): void {
+    this.router.navigate([`/patches`]);
+  }
 }

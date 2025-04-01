@@ -6,6 +6,7 @@ import { AgentDetailsComponent } from './components/agent-details/agent-details.
 import { StickersListComponent } from './components/stickers-list/stickers-list.component';
 import { StickerDetailsComponent } from './components/sticker-details/sticker-details.component';
 import { KeysListComponent } from './components/keys-list/keys-list.component';
+import { PatchesListComponent } from './components/patches-list/patches-list.component';
 
 export const routes: Routes = [
     { path: '', component: CaseListComponent},
@@ -15,5 +16,6 @@ export const routes: Routes = [
     { path: 'stickers', component: StickersListComponent },
     { path: 'sticker-details', component: StickerDetailsComponent},
     { path: 'keys', component: KeysListComponent },
+    { path: 'patches', component: PatchesListComponent }
 
 ];
