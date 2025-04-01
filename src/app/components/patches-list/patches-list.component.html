@@ -1,1 +1,23 @@
-<p>patches-list works!</p>
+<div class="container">
+    <app-base-filter class="filter" [items]="allPatches" [fieldName]="'name'"
+    (filteredItems)="patches = $event"></app-base-filter>
+    @for (patch of patches; track patch.id) {
+        <div class="patch">
+            <div class="info">
+                <h2>{{patch.name}}</h2>
+                <mat-divider></mat-divider>
+            </div>
+            <div class="details">
+                <div class="img">
+                    <img src="{{patch.image}}">,
+                </div>
+                <div class="cases">
+                    <div class="name" [innerHTML]="patch.description | newlineToBr"></div>
+                </div>
+            </div>
+            <div class="test" [style.background-color]="patch.rarity.color">
+                <p>{{patch.rarity.name}}</p>
+            </div>
+        </div>
+    }
+</div>

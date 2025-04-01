@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Cs2ApiService } from '../../services/cs2-api.service';
 import { Patch } from '../../models/patch';
+import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
+import { MatDividerModule } from '@angular/material/divider';
+import { BaseFilterComponent } from '../base-filter/base-filter.component';
 
 @Component({
   selector: 'app-patches-list',
-  imports: [],
+  imports: [
+    NewlineToBrPipe,
+    MatDividerModule,
+    BaseFilterComponent
+  ],
   templateUrl: './patches-list.component.html',
   styleUrl: './patches-list.component.css'
 })
