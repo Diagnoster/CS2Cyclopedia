@@ -5,6 +5,7 @@ import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { MatDividerModule } from '@angular/material/divider';
 import { BaseFilterComponent } from '../base-filter/base-filter.component';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { Cs2HelperService } from '../../services/cs2-helper.service';
 
 @Component({
   selector: 'app-patches-list',
@@ -29,9 +30,10 @@ export class PatchesListComponent implements OnInit {
   allPatches: Patch[] = [];
 
 
-  constructor(private cs2apiService: Cs2ApiService) { }
+  constructor(private cs2apiService: Cs2ApiService, private cs2Helper: Cs2HelperService) { }
 
   ngOnInit(): void {
+    this.cs2Helper.changeCaseName('Patches');
     this.getAllPatches();
     console.log(this.allPatches);
   }
