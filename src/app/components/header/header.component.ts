@@ -56,4 +56,8 @@ export class HeaderComponent {
   goToPatches(): void {
     this.router.navigate([`/patches`]);
   }
+
+  goToCollectibles(): void {
+    this.router.navigate([`/collectibles`]);
+  }
 }
