@@ -29,7 +29,6 @@ export class PatchesListComponent implements OnInit {
   patches: Patch[] = [];
   allPatches: Patch[] = [];
 
-
   constructor(private cs2apiService: Cs2ApiService, private cs2Helper: Cs2HelperService) { }
 
   ngOnInit(): void {
