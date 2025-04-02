@@ -1,1 +1,23 @@
-<p>collectibles-list works!</p>
+<div class="container">
+    <app-base-filter class="filter" [items]="allCollectibles" [fieldName]="'name'"
+    (filteredItems)="collectibles = $event"></app-base-filter>
+    @for (collectible of collectibles; track collectible.id) {
+        <div class="collectible" @fadeInDownBig>
+            <div class="info">
+                <h2>{{collectible.name}}</h2>
+                <mat-divider></mat-divider>
+            </div>
+            <div class="details">
+                <div class="img">
+                    <img src="{{collectible.image}}">,
+                </div>
+                <div class="cases">
+                    <div class="name" [innerHTML]="collectible.description | newlineToBr"></div>
+                </div>
+            </div>
+            <div class="test" [style.background-color]="collectible.rarity.color">
+                <p>{{collectible.rarity.name}}</p>
+            </div>
+        </div>
+    }
+</div>
