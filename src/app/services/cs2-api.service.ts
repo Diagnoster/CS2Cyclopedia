@@ -41,4 +41,9 @@ export class Cs2ApiService {
     const url = `${this.URL_BASE}/collectibles.json`;
     return this.http.get<any>(url);
   }
+
+  getAllGraffits(): Observable<any> {
+    const url = `${this.URL_BASE}/graffiti.json`;
+    return this.http.get<any>(url);
+  }
 }

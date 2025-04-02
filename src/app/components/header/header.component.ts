@@ -60,4 +60,8 @@ export class HeaderComponent {
   goToCollectibles(): void {
     this.router.navigate([`/collectibles`]);
   }
+
+  goToGraffits(): void {
+    this.router.navigate([`/graffits`]);
+  }
 }
