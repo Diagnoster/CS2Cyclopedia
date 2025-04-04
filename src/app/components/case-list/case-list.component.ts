@@ -6,13 +6,16 @@ import { Router } from '@angular/router';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { BaseFilterComponent } from '../base-filter/base-filter.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 
 @Component({
   selector: 'app-case-list',
   imports: [
     MatCardModule,
-    BaseFilterComponent
-  ],
+    BaseFilterComponent,
+    MatDividerModule
+],
   templateUrl: './case-list.component.html',
   styleUrl: './case-list.component.css',
   animations: [

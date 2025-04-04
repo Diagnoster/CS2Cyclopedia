@@ -1,14 +1,20 @@
 <div class="container">
-    <app-base-filter class="filter" [items]="allCases" [fieldName]="'name'" (filteredItems)="case = $event"></app-base-filter>
-    @for (container of case; track container.name) {
-        <mat-card class="case-card" appearance="outlined" (click)="goToDetails(container)" @fadeInDown>
-            <mat-card-header>
-                <mat-card-title class="ellipsis">{{container.name}}</mat-card-title>
-                <mat-card-subtitle class="ellipsis">{{container.market_hash_name}}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <img mat-card-sm-image src="{{container.image}}">
-            </mat-card-content>
-        </mat-card>
+    <app-base-filter class="filter" [items]="allCases" [fieldName]="'name'"
+    (filteredItems)="case = $event"></app-base-filter>
+    @for (crate of case; track crate.id) {
+        <div class="item-card" (click)="goToDetails(crate)" @fadeInDown>
+            <div class="info">
+                <h2>{{crate.name}}</h2>
+                <mat-divider></mat-divider>
+            </div>
+            <div class="details">
+                <div class="img">
+                    <img src="{{crate.image}}">,
+                </div>
+            </div>
+            <div class="date-container">
+                <p class="date-text">Date: {{crate.first_sale_date}}</p>
+            </div>
+        </div>
     }
 </div>
