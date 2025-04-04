@@ -8,10 +8,16 @@
 
 .item-card {
     width: 400px;
+    height: 480px;
     background-color: #24242491;
     margin: 2%;
     border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
+
 
 .info {
     text-align: center;
@@ -19,7 +25,7 @@
 
 .details {
     text-align: center;
-    margin: 3%;
+    margin-top: 10%;
 }
 
 mat-divider {
@@ -55,7 +61,7 @@ h2 {
 }
 
 img {
-    width: 350px;
+    width: 340px;
     height: auto;
     text-align: center;
 }
