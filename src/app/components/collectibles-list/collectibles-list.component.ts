@@ -35,7 +35,6 @@ export class CollectiblesListComponent implements OnInit {
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Collectibles');
     this.getAllCollectibles();
-    console.log(this.allCollectibles);
   }
 
   getAllCollectibles() {

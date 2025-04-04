@@ -49,7 +49,6 @@ export class KeysListComponent implements OnInit {
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Keys');
     this.getAgents();
-    console.log(this.keys);
   }
 
   getAgents() {

@@ -31,7 +31,6 @@ export class AgentDetailsComponent implements OnInit {
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    console.log(navigation);
 
     if (navigation?.extras.state?.['agent']) {
       this.agent = navigation.extras.state['agent'];
@@ -41,7 +40,6 @@ export class AgentDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.agent);
     if (!this.agent) {
       console.error('Agent is not available!');
     }

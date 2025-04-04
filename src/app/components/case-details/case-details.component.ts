@@ -49,7 +49,6 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log(this.container);
     this.cs2Helper.changeCaseName(this.container.name);
     this.cs2Helper.changeCaseImage(this.container.image);
     window.scrollTo(0, 0); // Rola para o topo quando o componente for carregado

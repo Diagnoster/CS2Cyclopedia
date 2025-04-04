@@ -34,7 +34,6 @@ export class PatchesListComponent implements OnInit {
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Patches');
     this.getAllPatches();
-    console.log(this.allPatches);
   }
 
   getAllPatches() {

@@ -40,7 +40,6 @@ export class StickerDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.sticker);
     if (!this.sticker) {
       console.error('Sticker is not available!');
     }
