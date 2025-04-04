@@ -20,19 +20,16 @@ import { animate, style, transition, trigger } from '@angular/animations';
     MatIconModule,
     WeaponCaseComponent
   ],
+  templateUrl: './case-details.component.html',
+  styleUrl: './case-details.component.css',
   animations: [
-    trigger('slideUp', [
+    trigger('slideIn', [
       transition(':enter', [
-        style({ transform: 'translateY(70%)', opacity: 0 }),
-        animate('300ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
-      ]),
-      transition(':leave', [
-        animate('300ms ease-in', style({ transform: 'translateY(100%)', opacity: 0 }))
+        style({ transform: 'translateX(-100%)', opacity: 0 }), // Start <- to ->
+        animate('500ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
       ])
     ])
-  ],
-  templateUrl: './case-details.component.html',
-  styleUrl: './case-details.component.css'
+  ]
 })
 export class CaseDetailsComponent implements OnInit, OnDestroy {
 
