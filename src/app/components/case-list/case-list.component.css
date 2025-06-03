@@ -7,10 +7,10 @@
 }
 
 .item-card {
-    width: 400px;
-    height: 480px;
+    width: 380px;
+    height: 450px;
     background-color: #24242491;
-    margin: 2%;
+    margin: 1%;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -41,7 +41,7 @@ mat-divider {
 .item-card:hover {
     border: 2px solid white;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-    transform: scale(1.10);
+    transform: scale(1.0);
     cursor: pointer;
 }
 

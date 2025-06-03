@@ -8,7 +8,7 @@ import { Agent } from '../models/agent';
 })
 export class Cs2ApiService {
 
-  URL_BASE = 'https://bymykel.github.io/CSGO-API/api/pt-BR/';
+  URL_BASE = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/pt-BR';
 
   constructor(private http: HttpClient) { }
 
