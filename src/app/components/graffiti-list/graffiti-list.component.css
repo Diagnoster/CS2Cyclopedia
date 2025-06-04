@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  mat-card {
+    width: 300px;
+    height: auto;
+    min-height: 420px;
+    max-height: 450px;
+    background-color: #24242491;
+    border: none;
+    margin: 10px;
+  }
+  
+  p,
+  mat-card-title,
+  mat-card-subtitle {
+    color: white;
+  }
+  
+  mat-card-content,
+  mat-card-header {
+    display: table-column;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  mat-card-title {
+    font-size: 20px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .test {
+    display: flex;
+    margin-top: auto;
+    background-color: red;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .name, mat-card-title {
+    color: rgb(231, 221, 160);
+  }
+  
+  mat-card:hover {
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    transform: scale(1.10);
+    cursor: pointer;
+  }
+  
+  .filter {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  ::ng-deep .mat-mdc-form-field-has-icon-prefix .mat-mdc-text-field-wrapper {
+    border-radius: 10px !important;
+  }
+
+  mat-progress-bar {
+    width: 90%;
+    margin: 0 auto;
+    background-color: none;
+  }

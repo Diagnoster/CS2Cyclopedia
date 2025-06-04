@@ -1,1 +1,31 @@
-<p>graffiti-list works!</p>
+<div class="container" (window:scroll)="onScroll()">
+    <mat-form-field class="filter">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" [(ngModel)]="searchTerm" (input)="filterGraffits()" placeholder="Pesquisar grafites...">
+    </mat-form-field>
+    @if(isLoading) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    } 
+    @else {
+        @for(graffiti of graffiti; track graffiti.name) {
+            <mat-card class="card" appearance="outlined" @fadeInDownBig>
+                <mat-card-header>
+                    <mat-card-title>{{graffiti.name}}</mat-card-title>
+                    <mat-divider></mat-divider>
+                </mat-card-header>
+                <img src="{{graffiti.image}}">
+                <mat-card-content>
+                    <p class="name">{{graffiti.market_hash_name}}</p>
+                    @if (graffiti.crates.length > 0) {
+                        @for(crate of graffiti.crates; track crate.name) {
+                            <p>{{crate.name}}</p>
+                        }
+                    }
+                </mat-card-content>
+                <div class="test" [style.background-color]="graffiti.rarity.color">
+                    <p>{{graffiti.rarity.name}}</p>
+                </div>
+            </mat-card>
+        }
+    }
+</div>
