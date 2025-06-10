@@ -3,14 +3,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-header',
   imports: [
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    RouterModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -19,6 +26,8 @@ export class HeaderComponent {
 
   containerName: string = 'Cases';
   containerImage: string | null = null;
+  opened = false;
+  hideHeader: boolean = false;
 
   constructor(private cs2Helper: Cs2HelperService, private router: Router) { }
 

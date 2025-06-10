@@ -1,6 +1,6 @@
 <mat-toolbar>
     <mat-toolbar-row>
-        <button mat-icon-button class="icon" aria-label="Example icon-button with menu icon">
+        <button mat-icon-button class="icon" (click)="snav.toggle()" aria-label="Example icon-button with menu icon">
             <mat-icon>menu</mat-icon>
         </button>
         <span class="home-span" (click)="goToHome()">CS2Cyclopedia</span>
@@ -27,3 +27,17 @@
         <span>{{ containerName }}</span>
     </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-drawer-container>
+  <mat-sidenav #snav class="side-nav-left" position="start" role="directory" [opened]="opened" mode="over" (closedStart)="opened = false">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/"> <p>Agents</p></a>
+      <a mat-list-item routerLink="/agents"> <p>Cases</p></a>
+      <a mat-list-item routerLink="/stickers"> <p>Stickers</p></a>
+      <a mat-list-item routerLink="/keys"> <p>Keys</p></a>
+      <a mat-list-item routerLink="/patches"> <p>Patches</p></a>
+      <a mat-list-item routerLink="/collectibles"> <p>Collectibles</p></a>
+      <a mat-list-item routerLink="/graffits"> <p>Graffits</p></a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-drawer-container>
