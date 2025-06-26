@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="public/mdimage.png" alt="material" width="300"/>
+</p>
 <h1 align="center">CS2Cyclopedia API</h1>
 
 <p align="center">
