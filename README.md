@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/mdimage.png" alt="material" width="300"/>
+  <img src="public/mdimage2.png" alt="img" width="300"/>
 </p>
 <h1 align="center">CS2Cyclopedia API</h1>
 
@@ -20,7 +20,7 @@
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
 </p>
 
-<h2 align="center">How to Use</h2>
+<h2 align="center"><img src="public/mdimage.png" alt="img" width="50"/>How to Use<img src="public/mdimage.png" alt="img" width="50"/></h2>
 <h3 align="center">Installation:</h3>
 
 <p align="center">
