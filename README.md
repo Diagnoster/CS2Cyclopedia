@@ -6,8 +6,8 @@
 <p align="center">
   API built with Angular 19 and Angular Material, providing access to information about cases, items, stickers, and much more related to the CS2 universe.
 </p>
-
-<h2 align="center">Technologies Used</h2>
+</br>
+<h2 align="center"><img src="public/mdimage8.png" alt="img" width="50"/>Technologies Used<img src="public/mdimage8.png" alt="img" width="50"/></h2>
 <p align="center">
   This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 19.
 </p>
@@ -19,6 +19,7 @@
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
 </p>
+</br>
 
 <h2 align="center"><img src="public/mdimage.png" alt="img" width="50"/>How to Use<img src="public/mdimage.png" alt="img" width="50"/></h2>
 <h3 align="center">Installation:</h3>
@@ -43,7 +44,9 @@
     ```bash
     ng version
 
-## Running
+</br>
+
+<h2 align="center"><img src="public/mdimage3.png" alt="img" width="50"/>Running<img src="public/mdimage3.png" alt="img" width="50"/></h2>
 
 1. Clone this repository:
    ```bash
@@ -58,7 +61,9 @@
     ```bash
     ng serve -o
 
-<h2 align="center">Further Help</h2>
+</br>
+
+<h2 align="center"><img src="public/mdimage4.png" alt="img" width="50"/>Further Help<img src="public/mdimage4.png" alt="img" width="50"/></h2>
 
 <p align="center">
   To get more help on the Angular CLI use <code>ng help</code> or go check out the
@@ -71,7 +76,7 @@
 
 <br/>
 
-<h2 align="center">Credits</h2>
+<h2 align="center"><img src="public/mdimage5.png" alt="img" width="50"/>Credits<img src="public/mdimage5.png" alt="img" width="50"/></h2>
 
 <h4 align="center">
   Credits to ByMykel for providing the API for data retrieval: 
@@ -80,7 +85,7 @@
 
 <br/>
 
-<h2 align="center">About</h2>
+<h2 align="center"><img src="public/mdimage6.png" alt="img" width="50"/>About<img src="public/mdimage6.png" alt="img" width="50"/></h2>
 
 <p align="center">
   This software is 100% free, open-source and unlicensed.
