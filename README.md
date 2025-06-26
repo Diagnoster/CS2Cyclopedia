@@ -1,59 +1,88 @@
-# CS2Cyclopedia
+<h1 align="center">CS2Cyclopedia API</h1>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+<p align="center">
+  API built with Angular 19 and Angular Material, providing access to information about cases, items, stickers, and much more related to the CS2 universe.
+</p>
 
-## Development server
+<h2 align="center">Technologies Used</h2>
+<p align="center">
+  This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 18.1.2.
+</p>
 
-To start a local development server, run:
+<p align="center">
+  <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-plain.svg" alt="material" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
+</p>
 
-```bash
-ng serve
-```
+<h2 align="center">How to Use</h2>
+<h3 align="center">Installation:</h3>
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+<h2 align="center">How to Use</h2>
+<h3 align="center">Installation:</h3>
 
-## Code scaffolding
+<p align="center">
+  To get started, make sure the following tools are installed on your machine:
+</p>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Download and install Node from the official website:
+   ```bash
+   https://nodejs.org/
 
-```bash
-ng generate component component-name
-```
+2. You can verify if Node.js is installed by running the following command in your terminal:
+   ```bash
+   node -v
+   
+3. Install Angular CLI via npm after installing Node.js:
+   ```bash
+   npm install -g @angular
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+4. Then, check if the CLI was installed successfully with:
+    ```bash
+    ng version
 
-```bash
-ng generate --help
-```
+## Running
 
-## Building
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Diagnoster/CS2Cyclopedia.git
+2. Navigate to the project directory:
+   ```bash
+   cd repository
+3. Install project dependencies:
+   ```bash
+   npm install
+4. Start Angular Application:
+    ```bash
+    ng serve -o
 
-To build the project run:
+<h2 align="center">Further Help</h2>
 
-```bash
-ng build
-```
+<p align="center">
+  To get more help on the Angular CLI use <code>ng help</code> or go check out the
+  <a href="https://angular.dev/tools/cli">Angular CLI Overview and Command Reference</a> page.
+</p>
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+<h4 align="center">
+  <a href="https://material.angular.io/components/categories">Angular Material Components</a>
+</h4>
 
-## Running unit tests
+<br/>
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+<h2 align="center">Credits</h2>
 
-```bash
-ng test
-```
+<h4 align="center">
+  Credits to ByMykel for providing the API for data retrieval: 
+  <a href="https://github.com/ByMykel/CSGO-API">https://github.com/ByMykel/CSGO-API</a>
+</h4>
 
-## Running end-to-end tests
+<br/>
 
-For end-to-end (e2e) testing, run:
+<h2 align="center">About</h2>
 
-```bash
-ng e2e
-```
+<p align="center">
+  This software is 100% free, open-source and unlicensed.
+</p>
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
