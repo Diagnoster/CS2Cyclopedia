@@ -20,9 +20,6 @@
 <h2 align="center">How to Use</h2>
 <h3 align="center">Installation:</h3>
 
-<h2 align="center">How to Use</h2>
-<h3 align="center">Installation:</h3>
-
 <p align="center">
   To get started, make sure the following tools are installed on your machine:
 </p>
