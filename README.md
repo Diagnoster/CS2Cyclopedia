@@ -6,7 +6,7 @@
 
 <h2 align="center">Technologies Used</h2>
 <p align="center">
-  This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 18.1.2.
+  This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 19.
 </p>
 
 <p align="center">
