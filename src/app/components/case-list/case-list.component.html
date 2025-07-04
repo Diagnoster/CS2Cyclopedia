@@ -13,7 +13,12 @@
                 </div>
             </div>
             <div class="date-container">
-                <p class="date-text">Date: {{crate.first_sale_date}}</p>
+                @if(crate.first_sale_date != null) {
+                    <p class="date-text">Date: {{crate.first_sale_date}}</p>
+                }
+                @else {
+                    <p class="date-text">Date: None</p>
+                }
             </div>
         </div>
     }

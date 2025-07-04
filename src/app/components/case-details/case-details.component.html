@@ -10,7 +10,12 @@
                 </mat-card>
             }
             <mat-card appearance="outlined">
-                <mat-card-content><b>Date Sale</b>: {{container.first_sale_date}}</mat-card-content>
+                @if(container.first_sale_date != null) {
+                    <mat-card-content><b>Date Sale</b>: {{container.first_sale_date}}</mat-card-content>
+                }
+                @else {
+                    <mat-card-content><b>Date Sale</b>: No Information</mat-card-content>
+                }
             </mat-card>
             @if(container.type === "Case") {
                 <div class="case-content">
