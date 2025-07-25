@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { WeaponCaseComponent } from '../weapon-case/weapon-case.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Cs2PriceService } from '../../services/cs2-price.service';
+import { SteamValue } from '../../models/steam-value';
 
 @Component({
   selector: 'app-case-details',
@@ -44,6 +45,7 @@ import { Cs2PriceService } from '../../services/cs2-price.service';
 export class CaseDetailsComponent implements OnInit, OnDestroy {
 
   container: Container;
+  value: SteamValue | undefined;
   visibleTable: 'case' | 'souvenir' | 'sticker' | null = null;
 
   constructor(private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService) {
@@ -75,10 +77,12 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
     this.visibleTable = null;
   }
 
-  selecionarItem(nome: string): void {
-    this.cs2Price.getItemPrice(nome).subscribe(precos => {
-      console.log(precos);
-    });
-  }
+selecionarItem(nome: string): void {
+  this.cs2Price.getItemPrice(nome).subscribe(precos => {
+    console.log(precos);
+    this.value = precos.steam;
+    console.log(this.value);
+  });
+}
 
 }

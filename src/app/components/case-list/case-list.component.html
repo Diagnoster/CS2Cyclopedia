@@ -1,6 +1,5 @@
 <div class="container">
-    <app-base-filter class="filter" [items]="allCases" [fieldName]="'name'"
-    (filteredItems)="case = $event"></app-base-filter>
+    <app-base-filter class="filter" [items]="allCases" [fieldName]="'name'" (filteredItems)="case = $event"></app-base-filter>
     @for (crate of case; track crate.id) {
         <div class="item-card" (click)="goToDetails(crate)" @fadeInDown>
             <div class="info">
@@ -9,7 +8,7 @@
             </div>
             <div class="details">
                 <div class="img">
-                    <img src="{{crate.image}}">,
+                    <img src="{{crate.image}}">
                 </div>
             </div>
             <div class="date-container">
