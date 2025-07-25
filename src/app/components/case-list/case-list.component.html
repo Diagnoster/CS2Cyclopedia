@@ -9,6 +9,12 @@
             <div class="details">
                 <div class="img">
                     <img src="{{crate.image}}">
+                @if(getPrice(crate) != null) {
+                    <p class="price-text money anim-color-change">Price: $ {{getPrice(crate) | number:'1.2-2'}}</p>
+                }
+                @else {
+                    <p class="price-text money anim-color-change">Price not available</p>
+                }
                 </div>
             </div>
             <div class="date-container">

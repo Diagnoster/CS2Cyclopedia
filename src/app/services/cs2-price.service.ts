@@ -25,4 +25,17 @@ export class Cs2PriceService {
       map(prices => prices[itemName] || null)
     );
   }
+  
+  getPricesMap(): Observable<{ [key: string]: any }> {
+    return this.getPrices().pipe(
+      map(pricesArray => {
+        if (!pricesArray || !Array.isArray(pricesArray)) return {};
+
+        return pricesArray.reduce((acc, item) => {
+          acc[item.name] = item;
+          return acc;
+        }, {} as { [key: string]: any });
+      })
+    );
+  }
 }

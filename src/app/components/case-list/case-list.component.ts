@@ -8,13 +8,16 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { BaseFilterComponent } from '../base-filter/base-filter.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
+import { Cs2PriceService } from '../../services/cs2-price.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-case-list',
   imports: [
     MatCardModule,
     BaseFilterComponent,
-    MatDividerModule
+    MatDividerModule,
+    CommonModule
 ],
   templateUrl: './case-list.component.html',
   styleUrl: './case-list.component.css',
@@ -30,8 +33,9 @@ import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 export class CaseListComponent implements OnInit {
   case: Container[] = [];
   allCases: Container[] = [];
+  prices: any = {};
 
-  constructor(private csApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) {}
+  constructor(private csApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService) {}
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Cases');
@@ -39,6 +43,10 @@ export class CaseListComponent implements OnInit {
       this.allCases = data;
       this.case = [...this.allCases];
     });  
+
+     this.cs2Price.getPrices().subscribe(prices => {
+      this.prices = prices;
+    });
   }
 
   goToDetails(container: Container): void {
@@ -47,5 +55,12 @@ export class CaseListComponent implements OnInit {
     }).catch(err => {
       console.error('Navigation error', err);
     });
+  }
+
+  getPrice(crate: Container): number | null {
+    if (this.prices && this.prices[crate.market_hash_name] && this.prices[crate.market_hash_name].steam) {
+      return this.prices[crate.market_hash_name].steam.last_24h; // ou last_24h, o que quiser
+    }
+    return null;
   }
 }
