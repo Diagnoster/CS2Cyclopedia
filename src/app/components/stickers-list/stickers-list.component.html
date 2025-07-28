@@ -25,6 +25,12 @@
                         }
                     }
                 </mat-card-content>
+                @if(getPrice(sticker) != null) {
+                    <p class="price-text money anim-color-change">$ {{getPrice(sticker)}} <img class="icon" src="steam_icon.png" alt="Icone steam"></p>
+                }
+                @else {
+                    <p class="price-text money anim-color-change">Price not available</p>
+                }
                 <div class="test" [style.background-color]="sticker.rarity.color">
                     <p>{{sticker.rarity.name}}</p>
                 </div>

@@ -1,19 +1,18 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Cs2ApiService } from '../../services/cs2-api.service';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
 import { Sticker } from '../../models/sticker';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { BaseFilterComponent } from '../base-filter/base-filter.component';
 import { FormsModule } from '@angular/forms';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { Cs2PriceService } from '../../services/cs2-price.service';
 
 @Component({
   selector: 'app-stickers-list',
@@ -25,7 +24,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormsModule,
     MatButtonModule,
     MatInputModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
   templateUrl: './stickers-list.component.html',
   styleUrl: './stickers-list.component.css',
@@ -46,11 +45,16 @@ export class StickersListComponent implements OnInit {
   isSearching: boolean = false; // lazy loading
   searchTimeout: any;
   isLoading: boolean = true;
+  prices: any = {};
 
-  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router) { }
+  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router, private cs2Price: Cs2PriceService) { }
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Stickers');
+
+    this.cs2Price.getPrices().subscribe(prices => {
+      this.prices = prices;
+    });
     this.cs2Service.getAllStickers().subscribe((data: any) => {
       this.allStickers = data;
       this.loadMoreStickers(); // loading 50 stickers
@@ -97,5 +101,11 @@ export class StickersListComponent implements OnInit {
     }).catch(err => console.error('Navigation error', err));
   }
 
+  getPrice(sticker: Sticker): number | null {
+    if (this.prices && this.prices[sticker.market_hash_name] && this.prices[sticker.market_hash_name].steam) {
+      return this.prices[sticker.market_hash_name].steam.last_24h;
+    }
+    return null;
+  }
 
 }
