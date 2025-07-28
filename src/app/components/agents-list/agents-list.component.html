@@ -7,10 +7,17 @@
                 <mat-divider></mat-divider>
             </mat-card-header>
             <img src="{{agent.image}}">
+
             <mat-card-content>
                 <p class="name">{{agent.name}}</p>
                 <p>{{agent.team.name}}</p>
             </mat-card-content>
+            @if(getPrice(agent) != null) {
+                <p class="price-text money anim-color-change">$ {{getPrice(agent) | number:'1.2-2'}} <img class="icon" src="steam_icon.png" alt="Icone steam"></p>
+            }
+            @else {
+                <p class="price-text money anim-color-change">Price not available</p>
+            }
             <div class="test" [style.background-color]="agent.rarity.color">
                 <p>{{agent.rarity.name}}</p>
             </div>

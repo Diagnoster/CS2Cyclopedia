@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { BaseFilterComponent } from '../base-filter/base-filter.component';
+import { Cs2PriceService } from '../../services/cs2-price.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-agents-list',
@@ -23,7 +25,8 @@ import { BaseFilterComponent } from '../base-filter/base-filter.component';
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    BaseFilterComponent
+    BaseFilterComponent,
+    CommonModule
 ],
   templateUrl: './agents-list.component.html',
   styleUrl: './agents-list.component.css',
@@ -39,12 +42,16 @@ import { BaseFilterComponent } from '../base-filter/base-filter.component';
 export class AgentsListComponent implements OnInit {
   agents: Agent[] = [];
   allAgents: Agent[] = [];
+  prices: any = {};
 
-  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService) {}
+  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService) {}
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Agents');
     this.getAgents();
+    this.cs2Price.getPrices().subscribe(prices => {
+      this.prices = prices;
+    });
   } 
 
   getAgents() {
@@ -61,5 +68,12 @@ export class AgentsListComponent implements OnInit {
   goToDetails(agent: Agent): void {
     this.router.navigate(['/agent-details'], { state: { agent } }).then(() => {
     }).catch(err => console.error('Navigation error', err));
+  }
+
+  getPrice(agent: Agent): number | null {
+    if (this.prices && this.prices[agent.market_hash_name] && this.prices[agent.market_hash_name].steam) {
+      return this.prices[agent.market_hash_name].steam.last_24h;
+    }
+    return null;
   }
 }
