@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { CommonModule } from '@angular/common';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-graffiti-list',
@@ -25,7 +26,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatInputModule,
     MatProgressBarModule,
-    CommonModule
+    CommonModule,
+    PriceComponent
   ],
   templateUrl: './graffiti-list.component.html',
   styleUrl: './graffiti-list.component.css',
@@ -56,10 +58,6 @@ export class GraffitiListComponent implements OnInit {
       this.allGraffiti = data;
       this.loadMoreGraffitis(); // loading 50 graffits
       this.isLoading = false;
-    });
-
-    this.cs2Price.getPrices().subscribe(prices => {
-      this.prices = prices;
     });
   }
 
@@ -95,12 +93,4 @@ export class GraffitiListComponent implements OnInit {
       }
     }, 500);
   }
-
-  getPrice(graffiti: Graffiti): number | null {
-    if (this.prices && this.prices[graffiti.market_hash_name] && this.prices[graffiti.market_hash_name].steam) {
-      return this.prices[graffiti.market_hash_name].steam.last_24h;
-    }
-    return null;
-  }
-
 }

@@ -76,33 +76,3 @@ mat-progress-bar {
   margin: 0 auto;
   background-color: none;
 }
-
-.icon {
-  width: 25px;
-  height: auto;
-  margin-left: 3%;
-}
-
-.price-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@keyframes yellowToGreen {
-  0% {
-    color: #ffff00;
-  }
-
-  50% {
-    color: #7fff00;
-  }
-
-  100% {
-    color: #ffff00;
-  }
-}
-
-.anim-color-change {
-  animation: yellowToGreen 4s ease-in-out infinite;
-}
