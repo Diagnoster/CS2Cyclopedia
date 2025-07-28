@@ -22,6 +22,12 @@
                         }
                     }
                 </mat-card-content>
+                @if(getPrice(graffiti) != null) {
+                    <p class="price-text money anim-color-change">$ {{getPrice(graffiti) | number:'1.2-2'}} <img class="icon" src="steam_icon.png" alt="Icone steam"></p>
+                }
+                @else {
+                    <p class="price-text money anim-color-change">Price not available</p>
+                }
                 <div class="test" [style.background-color]="graffiti.rarity.color">
                     <p>{{graffiti.rarity.name}}</p>
                 </div>
