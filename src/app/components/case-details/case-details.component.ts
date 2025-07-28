@@ -77,12 +77,10 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
     this.visibleTable = null;
   }
 
-selecionarItem(nome: string): void {
-  this.cs2Price.getItemPrice(nome).subscribe(precos => {
-    console.log(precos);
-    this.value = precos.steam;
-    console.log(this.value);
-  });
-}
+  selecionarItem(nome: string): void {
+    this.cs2Price.getItemPrice(nome).subscribe(precos => {
+      this.value = precos.steam;
+    });
+  }
 
 }

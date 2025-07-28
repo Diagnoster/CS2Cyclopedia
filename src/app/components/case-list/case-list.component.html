@@ -10,7 +10,7 @@
                 <div class="img">
                     <img src="{{crate.image}}">
                 @if(getPrice(crate) != null) {
-                    <p class="price-text money anim-color-change">Price: $ {{getPrice(crate) | number:'1.2-2'}}</p>
+                    <p class="price-text money anim-color-change">Price: $ {{getPrice(crate) | number:'1.2-2'}} <img class="icon" src="steam_icon.png" alt="Icone steam"></p>
                 }
                 @else {
                     <p class="price-text money anim-color-change">Price not available</p>

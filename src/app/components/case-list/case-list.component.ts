@@ -59,7 +59,7 @@ export class CaseListComponent implements OnInit {
 
   getPrice(crate: Container): number | null {
     if (this.prices && this.prices[crate.market_hash_name] && this.prices[crate.market_hash_name].steam) {
-      return this.prices[crate.market_hash_name].steam.last_24h; // ou last_24h, o que quiser
+      return this.prices[crate.market_hash_name].steam.last_24h;
     }
     return null;
   }

@@ -66,6 +66,18 @@ img {
     text-align: center;
 }
 
+.icon {
+    width: 25px;
+    height: auto;
+    margin-left: 3%;
+}
+
+.price-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* filter */
 .filter {
     width: 90%;
