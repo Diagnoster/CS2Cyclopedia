@@ -90,4 +90,3 @@
 <p align="center">
   This software is 100% free, open-source and unlicensed.
 </p>
-
