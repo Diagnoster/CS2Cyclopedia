@@ -11,6 +11,7 @@ import { WeaponCaseComponent } from '../weapon-case/weapon-case.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { SteamValue } from '../../models/steam-value';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-case-details',
@@ -20,7 +21,8 @@ import { SteamValue } from '../../models/steam-value';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    WeaponCaseComponent
+    WeaponCaseComponent,
+    PriceComponent
   ],
   templateUrl: './case-details.component.html',
   styleUrl: './case-details.component.css',

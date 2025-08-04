@@ -158,6 +158,10 @@ h3 {
         width: 100px;
     }
 
+    .price, .collect {
+        width: 60%;
+    }
+
     mat-card {
         height: auto;
     }

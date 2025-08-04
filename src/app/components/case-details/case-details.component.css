@@ -84,7 +84,7 @@ mat-card {
   border: none;
   cursor: pointer;
   transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-  width: 15rem;
+  width: 16rem;
 }
 
 img {
@@ -109,25 +109,4 @@ img {
 
 .mat-icon {
   vertical-align: middle;
-}
-
-.money {
-  font-weight: bold;
-  color: green;
-}
-
-@keyframes yellowToGreen {
-  0% {
-    color: #ffff00;
-  }
-  50% {
-    color: #7fff00;
-  }
-  100% {
-    color: #ffff00;
-  }
-}
-
-.anim-color-change {
-  animation: yellowToGreen 4s ease-in-out infinite;
 }
