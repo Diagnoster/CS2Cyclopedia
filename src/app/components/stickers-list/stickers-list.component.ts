@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Cs2PriceService } from '../../services/cs2-price.service';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-stickers-list',
@@ -25,6 +26,7 @@ import { Cs2PriceService } from '../../services/cs2-price.service';
     MatButtonModule,
     MatInputModule,
     MatProgressBarModule,
+    PriceComponent
   ],
   templateUrl: './stickers-list.component.html',
   styleUrl: './stickers-list.component.css',
@@ -51,10 +53,6 @@ export class StickersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Stickers');
-
-    this.cs2Price.getPrices().subscribe(prices => {
-      this.prices = prices;
-    });
     this.cs2Service.getAllStickers().subscribe((data: any) => {
       this.allStickers = data;
       this.loadMoreStickers(); // loading 50 stickers
