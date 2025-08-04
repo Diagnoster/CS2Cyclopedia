@@ -10,6 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { CommonModule } from '@angular/common';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-case-list',
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
     MatCardModule,
     BaseFilterComponent,
     MatDividerModule,
-    CommonModule
+    CommonModule,
+    PriceComponent
 ],
   templateUrl: './case-list.component.html',
   styleUrl: './case-list.component.css',
@@ -43,10 +45,6 @@ export class CaseListComponent implements OnInit {
       this.allCases = data;
       this.case = [...this.allCases];
     });  
-
-     this.cs2Price.getPrices().subscribe(prices => {
-      this.prices = prices;
-    });
   }
 
   goToDetails(container: Container): void {
@@ -55,12 +53,5 @@ export class CaseListComponent implements OnInit {
     }).catch(err => {
       console.error('Navigation error', err);
     });
-  }
-
-  getPrice(crate: Container): number | null {
-    if (this.prices && this.prices[crate.market_hash_name] && this.prices[crate.market_hash_name].steam) {
-      return this.prices[crate.market_hash_name].steam.last_24h;
-    }
-    return null;
   }
 }
