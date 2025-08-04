@@ -6,6 +6,7 @@ import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { trigger, transition, style, animate } from '@angular/animations';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-agent-details',
@@ -13,7 +14,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     NewlineToBrPipe,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    PriceComponent
 ],
   templateUrl: './agent-details.component.html',
   styleUrl: './agent-details.component.css',
