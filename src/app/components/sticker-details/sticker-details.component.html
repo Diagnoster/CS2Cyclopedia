@@ -22,5 +22,9 @@
         <div class="raridade" [style.background-color]="sticker.rarity.color">
             <p class="rarity-name">{{sticker.rarity.name}}</p>
         </div>
+        <div class="price">
+            <h2 class="title">Steam Market</h2>
+            <app-price [marketHashName]="sticker"></app-price>
+        </div>
     </div>
 </div>

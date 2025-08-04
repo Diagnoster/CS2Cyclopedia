@@ -54,6 +54,14 @@ h2 {
 
 }
 
+.price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2%;
+    border-radius: 10px;
+}
+
 mat-divider {
     color: white;
     opacity: 0.2;

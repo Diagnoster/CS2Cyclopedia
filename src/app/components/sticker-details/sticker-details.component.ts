@@ -5,13 +5,15 @@ import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-sticker-details',
   imports: [
     NewlineToBrPipe,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    PriceComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './sticker-details.component.html',
