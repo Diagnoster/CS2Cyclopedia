@@ -1,7 +1,9 @@
-@if(getPrice(marketHashName) != null) {
-<p class="price-text money anim-color-change">$ {{getPrice(marketHashName) | number:'1.2-2'}} <img class="icon"
-        src="steam_icon.png" alt="Icone steam"></p>
+@if(getItemPrice(marketHashName) != null) {
+    <p class="price-text money anim-color-change">
+        $ {{getItemPrice(marketHashName) | number:'1.2-2'}} 
+        <img class="icon" src="steam_icon.png" alt="Icone steam">
+    </p>
 }
 @else {
-<p class="price-text money anim-color-change">Price not available</p>
+    <p class="price-text money anim-color-change">Price not available</p>
 }

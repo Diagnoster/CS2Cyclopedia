@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BaseFilterComponent } from '../base-filter/base-filter.component';
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { CommonModule } from '@angular/common';
+import { PriceComponent } from '../price/price.component';
 
 @Component({
   selector: 'app-agents-list',
@@ -26,7 +27,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     BaseFilterComponent,
-    CommonModule
+    CommonModule,
+    PriceComponent
 ],
   templateUrl: './agents-list.component.html',
   styleUrl: './agents-list.component.css',
@@ -68,12 +70,5 @@ export class AgentsListComponent implements OnInit {
   goToDetails(agent: Agent): void {
     this.router.navigate(['/agent-details'], { state: { agent } }).then(() => {
     }).catch(err => console.error('Navigation error', err));
-  }
-
-  getPrice(agent: Agent): number | null {
-    if (this.prices && this.prices[agent.market_hash_name] && this.prices[agent.market_hash_name].steam) {
-      return this.prices[agent.market_hash_name].steam.last_24h;
-    }
-    return null;
   }
 }

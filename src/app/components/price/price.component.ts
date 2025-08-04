@@ -18,16 +18,19 @@ export class PriceComponent implements OnInit {
   constructor(private cs2Price: Cs2PriceService) { }
 
   ngOnInit(): void {
-    this.cs2Price.getPrices().subscribe(prices => {
-      this.prices = prices;
-    });
+    this.getPrices();
   }
 
-  getPrice(graffiti: Price): number | null {
+  getItemPrice(graffiti: Price): number | null {
     if (this.prices && this.prices[graffiti.market_hash_name] && this.prices[graffiti.market_hash_name].steam) {
       return this.prices[graffiti.market_hash_name].steam.last_24h;
     }
     return null;
   }
 
+  getPrices() {
+    this.cs2Price.getPrices().subscribe(prices => {
+      this.prices = prices;
+    });
+  }
 }
