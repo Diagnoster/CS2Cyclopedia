@@ -12,6 +12,11 @@ export class Cs2ApiService {
 
   constructor(private http: HttpClient) { }
 
+  getAllSkins(): Observable<any> {
+    const url = `${this.URL_BASE}/skins.json`;
+    return this.http.get<any>(url);
+  }
+
   getAllCases(): Observable<any> {
     const url = `${this.URL_BASE}/crates.json`;
     return this.http.get<any>(url);
