@@ -16,7 +16,7 @@
     width: 380px;
     height: 380px;
     background-color: #24242491;
-    margin: 1%;
+    margin: 2%;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -60,6 +60,15 @@ mat-divider {
 .img:hover {
     animation: pulseRotate 1s ease-in-out infinite;
     cursor: pointer;
+}
+
+.skin-card:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.filter {
+  width: 90%;
+  margin: 0 auto;
 }
 
 @keyframes pulseRotate {
