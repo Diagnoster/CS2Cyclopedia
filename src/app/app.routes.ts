@@ -9,6 +9,7 @@ import { KeysListComponent } from './components/keys-list/keys-list.component';
 import { PatchesListComponent } from './components/patches-list/patches-list.component';
 import { CollectiblesListComponent } from './components/collectibles-list/collectibles-list.component';
 import { GraffitiListComponent } from './components/graffiti-list/graffiti-list.component';
+import { SkinsComponent } from './components/skins/skins.component';
 
 export const routes: Routes = [
     { path: '', component: CaseListComponent},
@@ -20,5 +21,6 @@ export const routes: Routes = [
     { path: 'keys', component: KeysListComponent },
     { path: 'patches', component: PatchesListComponent },
     { path: 'collectibles', component: CollectiblesListComponent },
-    { path: 'graffits', component: GraffitiListComponent }
+    { path: 'graffits', component: GraffitiListComponent },
+    { path: 'skins', component: SkinsComponent },
 ];

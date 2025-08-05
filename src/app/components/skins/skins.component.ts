@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cs2ApiService } from '../../services/cs2-api.service';
+import { Skin } from '../../models/skin';
 
 @Component({
   selector: 'app-skins',
@@ -8,6 +9,7 @@ import { Cs2ApiService } from '../../services/cs2-api.service';
   styleUrl: './skins.component.css'
 })
 export class SkinsComponent implements OnInit {
+  skins: Skin [] = [];
 
   constructor(private cs2ApiService: Cs2ApiService) {}
 
@@ -17,7 +19,8 @@ export class SkinsComponent implements OnInit {
 
   getAllSkins() {
     this.cs2ApiService.getAllSkins().subscribe((data: any) => {
-      
+      this.skins = data;
+      console.log(this.skins);
     });
   }
 

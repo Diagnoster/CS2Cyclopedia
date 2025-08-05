@@ -72,4 +72,8 @@ export class HeaderComponent {
   goToGraffits(): void {
     this.router.navigate([`/graffits`]);
   }
+
+  goToSkins(): void {
+    this.router.navigate([`/skins`]);
+  }
 }
