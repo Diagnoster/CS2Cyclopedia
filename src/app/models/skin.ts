@@ -2,6 +2,7 @@ import { BaseClass } from "./base-class";
 import { Collection } from "./collection";
 import { Crate } from "./crate";
 import { Rarity } from "./rarity";
+import { Weapon } from "./weapon";
 
 export class Skin {
     constructor(
