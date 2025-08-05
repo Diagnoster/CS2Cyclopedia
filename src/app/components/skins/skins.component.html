@@ -1,3 +1,14 @@
 <div class="container">
-    
+    @for(skin of skins; track skin.id) {
+        <div class="content">
+            <div class="skin-card">
+                <div class="title">
+                    <h3>{{skin.name}}</h3>
+                </div>
+                <mat-divider class="divider"></mat-divider>
+                <img class="img" src="{{skin.image}}">
+                <p>Category: {{skin.category.name}}</p>
+            </div>
+        </div>
+    }
 </div>

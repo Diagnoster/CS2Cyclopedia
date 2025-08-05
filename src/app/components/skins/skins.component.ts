@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Cs2ApiService } from '../../services/cs2-api.service';
 import { Skin } from '../../models/skin';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-skins',
-  imports: [],
+  imports: [
+    MatDividerModule
+  ],
   templateUrl: './skins.component.html',
   styleUrl: './skins.component.css'
 })

@@ -1,0 +1,52 @@
+.container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skin-card {
+    width: 380px;
+    height: 380px;
+    background-color: #24242491;
+    margin: 1%;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+}
+p {
+    color: white;
+}
+
+.img {
+    width: 280px;
+    height: auto;
+}
+
+mat-divider {
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+}
+
+.title {
+    margin: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
