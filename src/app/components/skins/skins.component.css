@@ -26,7 +26,7 @@
 }
 
 h3 {
-    color: white;
+    color: rgb(231, 221, 160);
     text-align: center;
 }
 p {
@@ -49,4 +49,21 @@ mat-divider {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.img {
+    width: 280px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.img:hover {
+    animation: pulseRotate 1s ease-in-out infinite;
+    cursor: pointer;
+}
+
+@keyframes pulseRotate {
+    0%   { transform: scale(1) rotate(0deg); }
+    50%  { transform: scale(1.10) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
 }
