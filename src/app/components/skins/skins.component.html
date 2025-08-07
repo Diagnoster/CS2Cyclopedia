@@ -1,14 +1,25 @@
 <div class="container">
-    <app-base-filter class="filter" [items]="allSkins" [fieldName]="'name'" (filteredItems)="skins = $event"></app-base-filter>
-    @for(skin of skins; track skin.id) {
+    <app-base-filter class="filter" [items]="allSkins" [fieldName]="'name'"
+        (filteredItems)="skins = $event"></app-base-filter>
+    @for (skin of skins; track skin.id) {
         <div class="content">
             <div class="skin-card">
                 <div class="title">
-                    <h3>{{skin.name}}</h3>
+                    <h3>{{ skin.name }}</h3>
                 </div>
                 <mat-divider class="divider"></mat-divider>
-                <img class="img" src="{{skin.image}}">
-                <p>{{skin.category.name}}</p>
+                <img class="img" src="{{ skin.image }}">
+                <div class="category">
+                    <p>
+                        Desgastes
+                        <span class="tooltip-container" style="margin-left: 4px;">
+                            <span class="tooltip-text">
+                                {{ getWearsNames(skin.wears) }}
+                            </span>
+                            ⬇️
+                        </span>
+                    </p>
+                </div>
             </div>
         </div>
     }

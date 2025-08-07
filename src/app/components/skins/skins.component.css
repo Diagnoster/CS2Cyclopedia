@@ -57,6 +57,27 @@ mat-divider {
     transition: transform 0.3s ease;
 }
 
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.category p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.category mat-icon {
+  vertical-align: middle;
+  font-size: 20px;
+  color: white;
+  margin-left: 4px;
+}
+
 .img:hover {
     animation: pulseRotate 1s ease-in-out infinite;
     cursor: pointer;
@@ -69,6 +90,36 @@ mat-divider {
 .filter {
   width: 90%;
   margin: 0 auto;
+}
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 6px 8px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    width: 130px;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: pre-line;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 13px;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }
 
 @keyframes pulseRotate {
