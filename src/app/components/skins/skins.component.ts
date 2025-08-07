@@ -73,7 +73,7 @@ export class SkinsComponent implements OnInit {
   }
 
   goToDetails(skin: Skin): void {
-    this.router.navigate(['/agent-details'], { state: { skin } }).then(() => {
+    this.router.navigate(['/skin-details'], { state: { skin } }).then(() => {
     }).catch(err => console.error('Navigation error', err));
   }
 }
