@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" (window:scroll)="onScroll()">
     <app-base-filter class="filter" [items]="allSkins" [fieldName]="'name'"
         (filteredItems)="skins = $event"></app-base-filter>
     @for (skin of skins; track skin.id) {
-        <div class="content">
+        <div class="content" (click)="goToDetails(skin)" @fadeInDownBig>
             <div class="skin-card">
                 <div class="title">
                     <h3>{{ skin.name }}</h3>

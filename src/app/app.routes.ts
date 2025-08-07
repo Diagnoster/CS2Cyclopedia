@@ -10,6 +10,7 @@ import { PatchesListComponent } from './components/patches-list/patches-list.com
 import { CollectiblesListComponent } from './components/collectibles-list/collectibles-list.component';
 import { GraffitiListComponent } from './components/graffiti-list/graffiti-list.component';
 import { SkinsComponent } from './components/skins/skins.component';
+import { SkinDetailsComponent } from './components/skin-details/skin-details.component';
 
 export const routes: Routes = [
     { path: '', component: CaseListComponent},
@@ -23,4 +24,5 @@ export const routes: Routes = [
     { path: 'collectibles', component: CollectiblesListComponent },
     { path: 'graffits', component: GraffitiListComponent },
     { path: 'skins', component: SkinsComponent },
+    { path: 'skin-details', component: SkinDetailsComponent }
 ];

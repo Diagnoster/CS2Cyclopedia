@@ -1,1 +1,23 @@
 <p>skin-details works!</p>
+<div class="container" [@slideIn]>
+    <div class="info">
+        <h2 class="title">{{skin.name}}</h2>
+        <img class="sticker-img" src="{{skin.image}}">
+        <h2 class="title">Efeito</h2>
+        <p>{{skin.souvenir}}</p>
+    </div>
+    <div class="details">
+        <h2 class="title">Descrição</h2>
+        <div class="line"></div>
+        <div class="name" [innerHTML]="skin.description | newlineToBr"></div>
+        <h2 class="title">Tipo</h2>
+        <p>{{skin.team}}</p>
+        <h2 class="title">Raridade</h2>
+        <div class="raridade" [style.background-color]="skin.rarity.color">
+            <p class="rarity-name">{{skin.rarity.name}}</p>
+        </div>
+        <div class="price">
+            <h2 class="title">Steam Market</h2>
+        </div>
+    </div>
+</div>
