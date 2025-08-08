@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PriceComponent } from '../price/price.component';
+import { Cs2PriceService } from '../../services/cs2-price.service';
 
 @Component({
   selector: 'app-stickers-list',
@@ -46,8 +47,9 @@ export class StickersListComponent implements OnInit {
   isSearching: boolean = false; // lazy loading
   searchTimeout: any;
   isLoading: boolean = true;
+  prices: any = {};
 
-  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router) { }
+  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router, private cs2Price: Cs2PriceService) { }
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Stickers');
@@ -55,6 +57,9 @@ export class StickersListComponent implements OnInit {
       this.allStickers = data;
       this.loadMoreStickers(); // loading 50 stickers
       this.isLoading = false;
+    });
+    this.cs2Price.getPrices().subscribe((prices: any) => {
+      this.prices = prices;
     });
   }
 
