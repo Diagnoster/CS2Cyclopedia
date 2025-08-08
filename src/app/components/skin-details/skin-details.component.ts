@@ -5,13 +5,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { NewlineToBrPipe } from '../../pipes/newline-to-br.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-skin-details',
   imports: [
     NewlineToBrPipe,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   templateUrl: './skin-details.component.html',
   styleUrl: './skin-details.component.css',
