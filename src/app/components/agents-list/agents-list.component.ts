@@ -51,6 +51,9 @@ export class AgentsListComponent implements OnInit {
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Agents');
     this.getAgents();
+    this.cs2Price.getPrices().subscribe((prices: any) => {
+      this.prices = prices;
+    });
   } 
 
   getAgents() {
