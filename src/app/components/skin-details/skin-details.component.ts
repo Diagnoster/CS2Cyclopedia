@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
 import { NewlineToBrPipe } from '../../pipes/newline-to-br.pipe';
 import { MatIconModule } from '@angular/material/icon';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-skin-details',
@@ -13,13 +14,21 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   templateUrl: './skin-details.component.html',
-  styleUrl: './skin-details.component.css'
+  styleUrl: './skin-details.component.css',
+  animations: [
+    trigger('slideIn', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 0 }), // Start <- to ->
+        animate('500ms ease-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ])
+    ])
+  ]
 })
-export class SkinDetailsComponent implements OnInit{
+export class SkinDetailsComponent implements OnInit {
   skin!: Skin;
 
   constructor(private router: Router) {
-        const navigation = this.router.getCurrentNavigation();
+    const navigation = this.router.getCurrentNavigation();
     console.log(navigation);
 
     if (navigation?.extras.state?.['skin']) {
