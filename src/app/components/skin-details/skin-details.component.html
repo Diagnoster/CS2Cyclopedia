@@ -4,6 +4,14 @@
         <img class="sticker-img" src="{{skin.image}}">
         <h2 class="title">Categoria</h2>
         <p>{{skin.category.name}}</p>
+        <h2 class="title">Stattrak</h2>
+        <span class="bool">
+            @if (skin.stattrak == true) {
+            <img class="boolean-img" src="true.png" alt="Image True Stattrak">
+            } @else {
+            <img class="boolean-img" src="false.png" alt="Image False Stattrak">
+            }
+        </span>
         <h2 class="title">Raridade</h2>
         <div class="raridade" [style.background-color]="skin.rarity.color">
             <p class="rarity-name">{{skin.rarity.name}}</p>
