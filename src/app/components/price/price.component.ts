@@ -15,15 +15,19 @@ export class PriceComponent implements OnInit {
   @Input() prices!: any;
   @Input() marketHashName!: Price;
 
-  constructor(private cs2Price: Cs2PriceService) { }
+  constructor() { }
 
   ngOnInit(): void { }
 
   getItemPrice(graffiti: Price): number | null {
     const hash = graffiti.market_hash_name;
+
     if (this.prices && this.prices[hash] && this.prices[hash].steam) {
-      return this.prices[hash].steam.last_24h;
+      const steamData = this.prices[hash].steam;
+      return steamData.last_24h ?? steamData.last_30d ?? null;
     }
+
     return null;
   }
+
 }
