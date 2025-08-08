@@ -12,12 +12,15 @@ export class Cs2PriceService {
 
   constructor(private http: HttpClient) {}
 
-  getPrices(): Observable<any> {
-    if (this.prices$) {
-      console.log('Usando cache em memória');
-      return this.prices$;
-    }
+getPrices(): Observable<any> {
+  if (this.prices$) {
+    console.log('Usando cache em memória');
+    return this.prices$;
+  }
 
+  const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+
+  if (isBrowser) {
     const cached = localStorage.getItem('cs2-prices');
 
     if (cached) {
@@ -25,18 +28,23 @@ export class Cs2PriceService {
       this.prices$ = of(JSON.parse(cached)).pipe(
         shareReplay({ bufferSize: 1, refCount: true })
       );
-    } else {
-      console.log('Request API');
-      this.prices$ = this.http.get<any>(this.url).pipe(
-        tap(data => {
-          localStorage.setItem('cs2-prices', JSON.stringify(data));
-        }),
-        shareReplay({ bufferSize: 1, refCount: true })
-      );
+      return this.prices$;
     }
-
-    return this.prices$;
   }
+
+  console.log('Request API');
+  this.prices$ = this.http.get<any>(this.url).pipe(
+    tap(data => {
+      if (isBrowser) {
+        localStorage.setItem('cs2-prices', JSON.stringify(data));
+      }
+    }),
+    shareReplay({ bufferSize: 1, refCount: true })
+  );
+
+  return this.prices$;
+}
+
 
   getItemPrice(itemName: string): Observable<any | null> {
     return this.getPrices().pipe(
