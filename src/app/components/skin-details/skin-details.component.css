@@ -84,13 +84,29 @@ mat-divider {
     color: white;
 }
 
-.sticker-img {
+.skin-img {
     width: 340px;
     height: auto;
 }
 
+.crates-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crate-img {
+    width: 150px;
+    height: auto;
+}
+
+.crate {
+    width: 250px;
+    text-align: center;
+}
+
 @media (max-width: 1300px) {
-    .sticker-img {
+    .skin-img {
         width: 250px;
     }
 
@@ -100,7 +116,7 @@ mat-divider {
 }
 
 @media (max-width: 950px) {
-    .sticker-img {
+    .skin-img {
         width: 230px;
     }
 
@@ -118,7 +134,7 @@ mat-divider {
 }
 
 @media (max-width: 950px) {
-    .sticker-img {
+    .skin-img {
         width: 190px;
     }
 }
@@ -128,7 +144,7 @@ mat-divider {
         font-size: 22px;
     }
 
-    .sticker-img {
+    .skin-img {
         width: 300px;
     }
 

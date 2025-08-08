@@ -1,12 +1,20 @@
 <div class="container" [@slideIn]>
     <div class="info">
         <h2 class="title">{{skin.name}}</h2>
-        <img class="sticker-img" src="{{skin.image}}">
+        <img class="skin-img" src="{{skin.image}}">
         <h2 class="title">Categoria</h2>
         <p>{{skin.category.name}}</p>
         <h2 class="title">Stattrak</h2>
         <span class="bool">
             @if (skin.stattrak == true) {
+            <img class="boolean-img" src="true.png" alt="Image True Stattrak">
+            } @else {
+            <img class="boolean-img" src="false.png" alt="Image False Stattrak">
+            }
+        </span>
+        <h2 class="title">Souvenir</h2>
+        <span class="bool">
+            @if (skin.souvenir == true) {
             <img class="boolean-img" src="true.png" alt="Image True Stattrak">
             } @else {
             <img class="boolean-img" src="false.png" alt="Image False Stattrak">
@@ -24,6 +32,15 @@
         <h2 class="title">Float Value</h2>
         <div class="float">
             {{skin.min_float}} - {{skin.max_float}}
+        </div>
+        <h2 class="title">Caixas</h2>
+        <div class="crates-container">
+            @for(crate of skin.crates; track crate.id) {
+                <div class="crate">
+                    <p>{{crate.name}}</p>
+                    <img class="crate-img" src="{{crate.image}}">
+                </div>
+            } 
         </div>
         <div class="price">
             <h2 class="title">Steam Market</h2>
