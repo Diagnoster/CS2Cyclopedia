@@ -12,25 +12,18 @@ import { Price } from '../../models/price';
   styleUrl: './price.component.css'
 })
 export class PriceComponent implements OnInit {
-  prices: any = {};
+  @Input() prices!: any;
   @Input() marketHashName!: Price;
 
   constructor(private cs2Price: Cs2PriceService) { }
 
-  ngOnInit(): void {
-    this.getPrices();
-  }
+  ngOnInit(): void { }
 
   getItemPrice(graffiti: Price): number | null {
-    if (this.prices && this.prices[graffiti.market_hash_name] && this.prices[graffiti.market_hash_name].steam) {
-      return this.prices[graffiti.market_hash_name].steam.last_24h;
+    const hash = graffiti.market_hash_name;
+    if (this.prices && this.prices[hash] && this.prices[hash].steam) {
+      return this.prices[hash].steam.last_24h;
     }
     return null;
-  }
-
-  getPrices() {
-    this.cs2Price.getPrices().subscribe(prices => {
-      this.prices = prices;
-    });
   }
 }

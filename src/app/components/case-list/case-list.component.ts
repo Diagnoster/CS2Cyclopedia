@@ -7,10 +7,9 @@ import { Cs2HelperService } from '../../services/cs2-helper.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { BaseFilterComponent } from '../base-filter/base-filter.component';
 import { MatDividerModule } from '@angular/material/divider';
-import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
-import { Cs2PriceService } from '../../services/cs2-price.service';
 import { CommonModule } from '@angular/common';
 import { PriceComponent } from '../price/price.component';
+import { Cs2PriceService } from '../../services/cs2-price.service';
 
 @Component({
   selector: 'app-case-list',
@@ -45,6 +44,9 @@ export class CaseListComponent implements OnInit {
       this.allCases = data;
       this.case = [...this.allCases];
     });  
+    this.cs2Price.getPrices().subscribe((prices: any) => {
+      this.prices = prices;
+    });
   }
 
   goToDetails(container: Container): void {

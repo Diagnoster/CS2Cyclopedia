@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { Cs2PriceService } from '../../services/cs2-price.service';
 import { PriceComponent } from '../price/price.component';
 
 @Component({
@@ -47,9 +46,8 @@ export class StickersListComponent implements OnInit {
   isSearching: boolean = false; // lazy loading
   searchTimeout: any;
   isLoading: boolean = true;
-  prices: any = {};
 
-  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router, private cs2Price: Cs2PriceService) { }
+  constructor(private cs2Service: Cs2ApiService, private cs2Helper: Cs2HelperService, private router: Router) { }
 
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Stickers');
@@ -98,12 +96,4 @@ export class StickersListComponent implements OnInit {
       console.log('Navigation complete');
     }).catch(err => console.error('Navigation error', err));
   }
-
-  getPrice(sticker: Sticker): number | null {
-    if (this.prices && this.prices[sticker.market_hash_name] && this.prices[sticker.market_hash_name].steam) {
-      return this.prices[sticker.market_hash_name].steam.last_24h;
-    }
-    return null;
-  }
-
 }
