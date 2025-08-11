@@ -30,12 +30,14 @@ import { PriceComponent } from '../price/price.component';
 })
 export class AgentDetailsComponent implements OnInit {
   agent!: Agent;
+  prices: any = {};
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
 
     if (navigation?.extras.state?.['agent']) {
       this.agent = navigation.extras.state['agent'];
+      this.prices = navigation.extras.state['prices'];
     } else {
       this.router.navigate(['/agents']);
     }
