@@ -97,7 +97,7 @@ export class StickersListComponent implements OnInit {
   }
 
   goToDetails(sticker: Sticker): void {
-    this.router.navigate(['/sticker-details'], { state: { sticker } }).then(() => {
+    this.router.navigate(['/sticker-details'], { state: { sticker, prices: this.prices } }).then(() => {
       console.log('Navigation complete');
     }).catch(err => console.error('Navigation error', err));
   }

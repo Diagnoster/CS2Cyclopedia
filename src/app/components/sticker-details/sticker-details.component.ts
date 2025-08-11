@@ -29,6 +29,7 @@ import { PriceComponent } from '../price/price.component';
 })
 export class StickerDetailsComponent implements OnInit {
   sticker!: Sticker;
+  prices: any = {};
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
@@ -36,6 +37,7 @@ export class StickerDetailsComponent implements OnInit {
 
     if (navigation?.extras.state?.['sticker']) {
       this.sticker = navigation.extras.state['sticker'];
+      this.prices = navigation.extras.state['prices'];
     } else {
       this.router.navigate(['/stickers']);
     }
