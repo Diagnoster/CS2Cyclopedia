@@ -47,6 +47,7 @@ import { PriceComponent } from '../price/price.component';
 export class CaseDetailsComponent implements OnInit, OnDestroy {
 
   container: Container;
+  prices: any = {};
   value: SteamValue | undefined;
   visibleTable: 'case' | 'souvenir' | 'sticker' | null = null;
 
@@ -54,6 +55,7 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.container = navigation.extras.state['container'];
+      this.prices = navigation.extras.state['prices'];
     } else {
       this.container = {} as Container;
     }

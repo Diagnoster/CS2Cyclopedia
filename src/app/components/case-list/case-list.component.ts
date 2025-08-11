@@ -50,7 +50,7 @@ export class CaseListComponent implements OnInit {
   }
 
   goToDetails(container: Container): void {
-    this.router.navigate(['/case-details'], { state: { container } }).then(() => {
+    this.router.navigate(['/case-details'], { state: { container, prices: this.prices } }).then(() => {
       console.log('Navigation complete');
     }).catch(err => {
       console.error('Navigation error', err);
