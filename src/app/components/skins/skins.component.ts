@@ -8,6 +8,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BaseClass } from '../../models/base-class';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { Cs2PriceService } from '../../services/cs2-price.service';
+import { Price } from '../../models/price';
+import { HashNameSkin } from '../../models/hash-name-skin';
 
 @Component({
   selector: 'app-skins',
@@ -36,11 +39,16 @@ export class SkinsComponent implements OnInit {
   isSearching: boolean = false; // lazy loading
   searchTimeout: any;
   isLoading: boolean = true;
+  prices: any = {};
+  wears: HashNameSkin [] = [];
 
-  constructor(private cs2ApiService: Cs2ApiService, private router: Router) { }
+  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Price: Cs2PriceService) { }
 
   ngOnInit(): void {
     this.getAllSkins();
+    this.cs2Price.getPrices().subscribe((prices: any) => {
+      this.prices = prices;
+    });
   }
 
   loadMoreSkins(): void {
@@ -73,7 +81,17 @@ export class SkinsComponent implements OnInit {
   }
 
   goToDetails(skin: Skin): void {
-    this.router.navigate(['/skin-details'], { state: { skin } }).then(() => {
+    this.wears = []; // clear list
+
+    for (const wear of (skin.wears ?? [])) {
+      const marketHashName = `${skin.name} (${wear.name})`;
+      this.wears.push(new HashNameSkin(marketHashName, wear.name));
+      console.log("wear abaixo");
+      console.log(wear);
+    }
+
+    this.router.navigate(['/skin-details'], { 
+      state: { skin, prices: this.prices, wears: this.wears } 
     }).catch(err => console.error('Navigation error', err));
   }
 }

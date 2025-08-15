@@ -1,0 +1,15 @@
+<div class="container">
+    @for (name of marketHashName; track name) {
+        @if(getItemPrice(name) != null) {
+            <div class="price">
+                <p class="weapon-wear">{{name.wear}}</p>
+                <p class="price-text money anim-color-change">
+                    $ {{ getItemPrice(name) | number:'1.2-2' }} 
+                    <img class="icon" src="steam_icon.png" alt="Steam icon">
+                </p>
+            </div>
+        } @else {
+            <p class="price-text money price-unavailable">Price not available</p>
+        }
+    }
+</div>
