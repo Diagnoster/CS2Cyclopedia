@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Price } from '../../models/price';
 import { CommonModule } from '@angular/common';
 import { HashNameSkin } from '../../models/hash-name-skin';
 

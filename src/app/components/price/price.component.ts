@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Cs2PriceService } from '../../services/cs2-price.service';
 import { CommonModule } from '@angular/common';
 import { Price } from '../../models/price';
 
@@ -19,8 +18,8 @@ export class PriceComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  getItemPrice(graffiti: Price): number | null {
-    const hash = graffiti.market_hash_name;
+  getItemPrice(item: Price): number | null {
+    const hash = item.market_hash_name;
 
     if (this.prices && this.prices[hash] && this.prices[hash].steam) {
       const steamData = this.prices[hash].steam;

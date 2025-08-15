@@ -9,7 +9,6 @@ import { BaseClass } from '../../models/base-class';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Cs2PriceService } from '../../services/cs2-price.service';
-import { Price } from '../../models/price';
 import { HashNameSkin } from '../../models/hash-name-skin';
 
 @Component({

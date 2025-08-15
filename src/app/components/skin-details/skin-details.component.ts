@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PriceWearsComponent } from "../price-wears/price-wears.component";
-import { Price } from '../../models/price';
 import { HashNameSkin } from '../../models/hash-name-skin';
 
 @Component({
