@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { HashNameSkin } from '../../models/hash-name-skin';
+import { Cs2HelperService } from '../../services/cs2-helper.service';
 
 @Component({
   selector: 'app-skins',
@@ -41,9 +42,10 @@ export class SkinsComponent implements OnInit {
   prices: any = {};
   wears: HashNameSkin [] = [];
 
-  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Price: Cs2PriceService) { }
+  constructor(private cs2ApiService: Cs2ApiService, private router: Router, private cs2Price: Cs2PriceService, private cs2Helper: Cs2HelperService) { }
 
   ngOnInit(): void {
+    this.cs2Helper.changeCaseName('Skins');
     this.getAllSkins();
     this.cs2Price.getPrices().subscribe((prices: any) => {
       this.prices = prices;
