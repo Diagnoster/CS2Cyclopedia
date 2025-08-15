@@ -1,13 +1,13 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!-- Raridade Column -->
   <ng-container matColumnDef="raridade">
-    <th mat-header-cell *matHeaderCellDef> Raridade </th>
+    <th mat-header-cell *matHeaderCellDef> Rarity </th>
     <td mat-cell *matCellDef="let element"> {{element.raridade}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="cor">
-    <th mat-header-cell *matHeaderCellDef> Cor </th>
+    <th mat-header-cell *matHeaderCellDef> Collor </th>
     <td mat-cell *matCellDef="let element" [ngStyle]="{'color': colorMap[element.raridade]}"> {{element.cor}} </td>
   </ng-container>
 
@@ -19,7 +19,7 @@
 
   <!-- Probabilidade Column -->
   <ng-container matColumnDef="probabilidade">
-    <th mat-header-cell *matHeaderCellDef> Probabilidade </th>
+    <th mat-header-cell *matHeaderCellDef> Probability </th>
     <td mat-cell *matCellDef="let element"> {{element.probabilidade}} </td>
   </ng-container>
 
