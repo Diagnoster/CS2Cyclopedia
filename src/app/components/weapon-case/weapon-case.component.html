@@ -7,13 +7,13 @@
 
   <!-- Name Column -->
   <ng-container matColumnDef="cor">
-    <th mat-header-cell *matHeaderCellDef> Collor </th>
+    <th mat-header-cell *matHeaderCellDef> Color </th>
     <td mat-cell *matCellDef="let element" [ngStyle]="{'color': colorMap[element.raridade]}"> {{element.cor}} </td>
   </ng-container>
 
   <!-- Chances Column -->
   <ng-container matColumnDef="chances">
-    <th mat-header-cell *matHeaderCellDef> Chances </th>
+    <th mat-header-cell *matHeaderCellDef> Chance </th>
     <td mat-cell *matCellDef="let element" [ngStyle]="{'color': colorMap[element.raridade]}"> {{element.chances}}% </td>
   </ng-container>
 
