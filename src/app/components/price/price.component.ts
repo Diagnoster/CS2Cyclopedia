@@ -23,7 +23,7 @@ export class PriceComponent implements OnInit {
 
     if (this.prices && this.prices[hash] && this.prices[hash].steam) {
       const steamData = this.prices[hash].steam;
-      return steamData.last_24h ?? steamData.last_30d ?? null;
+      return steamData.last_24h ?? steamData.last_30d ?? steamData.last_ever ?? null;
     }
 
     return null;
