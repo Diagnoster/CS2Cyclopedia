@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Container } from '../../models/container';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
@@ -50,8 +50,9 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
   prices: any = {};
   value: SteamValue | undefined;
   visibleTable: 'case' | 'souvenir' | 'sticker' | null = null;
+  caseId!: number;
 
-  constructor(private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService) {
+  constructor(private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService, private route: ActivatedRoute) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.container = navigation.extras.state['container'];
@@ -62,6 +63,7 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.caseId = Number(this.route.snapshot.paramMap.get('id'));
     this.cs2Helper.changeCaseName(this.container.name);
     this.cs2Helper.changeCaseImage(this.container.image);
     window.scrollTo(0, 0); // Rola para o topo quando o componente for carregado

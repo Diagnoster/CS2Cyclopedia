@@ -14,7 +14,7 @@ import { SkinDetailsComponent } from './components/skin-details/skin-details.com
 
 export const routes: Routes = [
     { path: '', component: CaseListComponent},
-    { path: 'case-details', component: CaseDetailsComponent },
+    { path: 'case-details/:id', component: CaseDetailsComponent },
     { path: 'agents', component: AgentsListComponent },
     { path: 'agent-details/:id', component: AgentDetailsComponent},
     { path: 'stickers', component: StickersListComponent },
