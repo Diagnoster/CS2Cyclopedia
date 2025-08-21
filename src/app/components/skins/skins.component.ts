@@ -87,11 +87,9 @@ export class SkinsComponent implements OnInit {
     for (const wear of (skin.wears ?? [])) {
       const marketHashName = `${skin.name} (${wear.name})`;
       this.wears.push(new HashNameSkin(marketHashName, wear.name));
-      console.log("wear abaixo");
-      console.log(wear);
     }
 
-    this.router.navigate(['/skin-details'], { 
+    this.router.navigate(['/skin-details', skin.id], { 
       state: { skin, prices: this.prices, wears: this.wears } 
     }).catch(err => console.error('Navigation error', err));
   }

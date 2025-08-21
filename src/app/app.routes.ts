@@ -24,5 +24,5 @@ export const routes: Routes = [
     { path: 'collectibles', component: CollectiblesListComponent },
     { path: 'graffits', component: GraffitiListComponent },
     { path: 'skins', component: SkinsComponent },
-    { path: 'skin-details', component: SkinDetailsComponent }
+    { path: 'skin-details/:id', component: SkinDetailsComponent }
 ];

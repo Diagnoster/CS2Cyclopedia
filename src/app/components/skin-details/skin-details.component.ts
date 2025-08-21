@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Skin } from '../../models/skin';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
 import { NewlineToBrPipe } from '../../pipes/newline-to-br.pipe';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,12 +32,11 @@ import { HashNameSkin } from '../../models/hash-name-skin';
 export class SkinDetailsComponent implements OnInit {
   skin!: Skin;
   prices: any = {};
-  wears: HashNameSkin [] = [];
+  wears: HashNameSkin[] = [];
+  skinId!: number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     const navigation = this.router.getCurrentNavigation();
-    console.log(navigation);
-
     if (navigation?.extras.state?.['skin']) {
       this.skin = navigation.extras.state['skin'];
       this.prices = navigation.extras.state['prices'];
@@ -48,6 +47,7 @@ export class SkinDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.skinId = Number(this.route.snapshot.paramMap.get('id'));
     if (!this.skin) {
       console.error('Skin is not available!');
     }
