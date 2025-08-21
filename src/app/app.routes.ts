@@ -16,7 +16,7 @@ export const routes: Routes = [
     { path: '', component: CaseListComponent},
     { path: 'case-details', component: CaseDetailsComponent },
     { path: 'agents', component: AgentsListComponent },
-    { path: 'agent-details', component: AgentDetailsComponent},
+    { path: 'agent-details/:id', component: AgentDetailsComponent},
     { path: 'stickers', component: StickersListComponent },
     { path: 'sticker-details', component: StickerDetailsComponent},
     { path: 'keys', component: KeysListComponent },

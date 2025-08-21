@@ -68,7 +68,7 @@ export class AgentsListComponent implements OnInit {
   }
 
   goToDetails(agent: Agent): void {
-    this.router.navigate(['/agent-details'], { state: { agent, prices: this.prices } }).then(() => {
+    this.router.navigate(['/agent-details', agent.id], { state: { agent, prices: this.prices } }).then(() => {
     }).catch(err => console.error('Navigation error', err));
   }
 }
