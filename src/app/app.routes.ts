@@ -18,7 +18,7 @@ export const routes: Routes = [
     { path: 'agents', component: AgentsListComponent },
     { path: 'agent-details/:id', component: AgentDetailsComponent},
     { path: 'stickers', component: StickersListComponent },
-    { path: 'sticker-details', component: StickerDetailsComponent},
+    { path: 'sticker-details/:id', component: StickerDetailsComponent},
     { path: 'keys', component: KeysListComponent },
     { path: 'patches', component: PatchesListComponent },
     { path: 'collectibles', component: CollectiblesListComponent },

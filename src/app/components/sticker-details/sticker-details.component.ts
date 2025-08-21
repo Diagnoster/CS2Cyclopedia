@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Sticker } from '../../models/sticker';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,8 +30,9 @@ import { PriceComponent } from '../price/price.component';
 export class StickerDetailsComponent implements OnInit {
   sticker!: Sticker;
   prices: any = {};
+  stickerId!: number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     const navigation = this.router.getCurrentNavigation();
     console.log(navigation);
 
@@ -44,6 +45,7 @@ export class StickerDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.stickerId = Number(this.route.snapshot.paramMap.get('id'));
     if (!this.sticker) {
       console.error('Sticker is not available!');
     }
