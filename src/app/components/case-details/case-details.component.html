@@ -66,14 +66,14 @@
             <h3>Normal itens:</h3>
             <div class="rare-column">
                 @for(item of container.contains; track item) {
-                    <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
+                    <img class="item" mat-card-sm-image src="{{item.image}}" (click)="goToSkin(item.name)" matTooltip="{{item.name}}">
                 }
             </div>           
             @if(container.contains_rare.length > 0) {
                 <h3>Rare itens:</h3>
                 <div class="rare-column">
                     @for(item of container.contains_rare; track item) {
-                        <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
+                        <img class="item" mat-card-sm-image src="{{item.image}}" (click)="goToSkin(item.name)" matTooltip="{{item.name}}">
                     }
                 </div>
             }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Agent } from '../models/agent';
 
 @Injectable({
@@ -15,6 +15,12 @@ export class Cs2ApiService {
   getAllSkins(): Observable<any> {
     const url = `${this.URL_BASE}/skins.json`;
     return this.http.get<any>(url);
+  }
+
+  findSkinByName(name: string): Observable<any> {
+    return this.getAllSkins().pipe(
+      map(skins => skins.find((s: any) => s.name === name))
+    );
   }
 
   getAllCases(): Observable<any> {

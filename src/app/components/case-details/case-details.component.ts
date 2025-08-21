@@ -12,6 +12,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { SteamValue } from '../../models/steam-value';
 import { PriceComponent } from '../price/price.component';
+import { Cs2ApiService } from '../../services/cs2-api.service';
+import { HashNameSkin } from '../../models/hash-name-skin';
 
 @Component({
   selector: 'app-case-details',
@@ -52,7 +54,7 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
   visibleTable: 'case' | 'souvenir' | 'sticker' | null = null;
   caseId!: number;
 
-  constructor(private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService, private route: ActivatedRoute) {
+  constructor(private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService, private route: ActivatedRoute, private cs2ApiService: Cs2ApiService) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.container = navigation.extras.state['container'];
@@ -88,5 +90,27 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
       this.value = precos.steam;
     });
   }
+
+  goToSkin(skinName: string): void {
+    this.cs2ApiService.findSkinByName(skinName).subscribe(skin => {
+      if (!skin) {
+        console.error('Skin not found:', skinName);
+        return;
+      }
+
+      // wears
+      const wears: HashNameSkin[] = [];
+      for (const wear of (skin.wears ?? [])) {
+        const marketHashName = `${skin.name} (${wear.name})`;
+        wears.push(new HashNameSkin(marketHashName, wear.name));
+      }
+
+      this.router.navigate(
+        ['/skin-details', skin.id],
+        { state: { skin, prices: this.prices, wears } }
+      ).catch(err => console.error('Navigation error', err));
+    });
+  }
+
 
 }
