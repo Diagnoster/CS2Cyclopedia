@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Agent } from '../models/agent';
+import { Container } from '../models/container';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,12 @@ export class Cs2ApiService {
   findSkinByName(name: string): Observable<any> {
     return this.getAllSkins().pipe(
       map(skins => skins.find((s: any) => s.name === name))
+    );
+  }
+
+  findCrateByName(name: string): Observable<Container | null> {
+    return this.getAllCases().pipe(
+      map(crates => crates.find((s: any) => s.name === name))
     );
   }
 

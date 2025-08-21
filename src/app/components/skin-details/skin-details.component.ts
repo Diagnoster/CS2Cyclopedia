@@ -8,6 +8,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PriceWearsComponent } from "../price-wears/price-wears.component";
 import { HashNameSkin } from '../../models/hash-name-skin';
+import { Cs2ApiService } from '../../services/cs2-api.service';
+import { Container } from '../../models/container';
 
 @Component({
   selector: 'app-skin-details',
@@ -17,7 +19,7 @@ import { HashNameSkin } from '../../models/hash-name-skin';
     MatIconModule,
     MatTooltipModule,
     PriceWearsComponent
-],
+  ],
   templateUrl: './skin-details.component.html',
   styleUrl: './skin-details.component.css',
   animations: [
@@ -35,7 +37,7 @@ export class SkinDetailsComponent implements OnInit {
   wears: HashNameSkin[] = [];
   skinId!: number;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private cs2ApiService: Cs2ApiService) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state?.['skin']) {
       this.skin = navigation.extras.state['skin'];
@@ -51,6 +53,19 @@ export class SkinDetailsComponent implements OnInit {
     if (!this.skin) {
       console.error('Skin is not available!');
     }
+  }
+
+  goToContainer(caseName: string): void {
+    this.cs2ApiService.findCrateByName(caseName).subscribe((container: Container | null) => {
+      if (!container) {
+        console.error('Case not found:', caseName);
+        return;
+      }
+      this.router.navigate(
+        ['/case-details', container.id],
+        { state: { container, prices: this.prices } }
+      ).catch(err => console.error('Navigation error', err));
+    });
   }
 
 }

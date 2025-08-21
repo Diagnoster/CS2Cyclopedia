@@ -37,7 +37,7 @@
         <div class="crates-container">
             @for(crate of skin.crates; track crate.id) {
                 <div class="crate">
-                    <img class="crate-img" src="{{crate.image}}" matTooltip="{{crate.name}}">
+                    <img class="crate-img" src="{{crate.image}}" (click)="goToContainer(crate.name)" matTooltip="{{crate.name}}">
                 </div>
             } 
         </div>
