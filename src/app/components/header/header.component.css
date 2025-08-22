@@ -58,10 +58,11 @@ span {
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 1003;
-  background-color: rgb(53, 53, 53);
-  margin-top: 64px;
   width: 150px;
+  margin-top: 64px;
+  background-color: rgb(53, 53, 53);
+  z-index: 99999;
+  transform: translateZ(0);
 }
 
 p {

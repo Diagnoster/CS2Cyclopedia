@@ -24,11 +24,6 @@
   background-size: contain;
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-}
-
 .rare-column {
   display: inline-flex;
   flex-wrap: wrap;
