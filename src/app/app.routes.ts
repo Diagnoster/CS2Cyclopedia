@@ -13,16 +13,33 @@ import { SkinsComponent } from './components/skins/skins.component';
 import { SkinDetailsComponent } from './components/skin-details/skin-details.component';
 
 export const routes: Routes = [
-    { path: '', component: CaseListComponent},
-    { path: 'case-details/:id', component: CaseDetailsComponent },
-    { path: 'agents', component: AgentsListComponent },
-    { path: 'agent-details/:id', component: AgentDetailsComponent},
-    { path: 'stickers', component: StickersListComponent },
-    { path: 'sticker-details/:id', component: StickerDetailsComponent},
-    { path: 'keys', component: KeysListComponent },
-    { path: 'patches', component: PatchesListComponent },
-    { path: 'collectibles', component: CollectiblesListComponent },
-    { path: 'graffits', component: GraffitiListComponent },
-    { path: 'skins', component: SkinsComponent },
-    { path: 'skin-details/:id', component: SkinDetailsComponent }
+  { path: '', component: CaseListComponent },
+  { 
+    path: 'case-details/:id', 
+    component: CaseDetailsComponent, 
+    data: { renderMode: 'server' } 
+  },
+  { path: 'agents', component: AgentsListComponent },
+  { 
+    path: 'agent-details/:id', 
+    component: AgentDetailsComponent, 
+    data: { renderMode: 'server' } 
+  },
+  { path: 'stickers', component: StickersListComponent },
+  { 
+    path: 'sticker-details/:id', 
+    component: StickerDetailsComponent, 
+    data: { renderMode: 'server' } 
+  },
+  { path: 'keys', component: KeysListComponent },
+  { path: 'patches', component: PatchesListComponent },
+  { path: 'collectibles', component: CollectiblesListComponent },
+  { path: 'graffits', component: GraffitiListComponent },
+  { path: 'skins', component: SkinsComponent },
+  { 
+    path: 'skin-details/:id', 
+    component: SkinDetailsComponent, 
+    data: { renderMode: 'server' } 
+  }
 ];
+
