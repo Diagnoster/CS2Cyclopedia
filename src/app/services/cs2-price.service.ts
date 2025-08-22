@@ -10,40 +10,40 @@ export class Cs2PriceService {
 
   private prices$: Observable<any> | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-getPrices(): Observable<any> {
-  if (this.prices$) {
-    console.log('Usando cache em memória');
-    return this.prices$;
-  }
-
-  const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
-
-  if (isBrowser) {
-    const cached = localStorage.getItem('cs2-prices');
-
-    if (cached) {
-      console.log('Usando cache localStorage');
-      this.prices$ = of(JSON.parse(cached)).pipe(
-        shareReplay({ bufferSize: 1, refCount: true })
-      );
+  getPrices(): Observable<any> {
+    if (this.prices$) {
+      console.log('Usando cache em memória');
       return this.prices$;
     }
-  }
 
-  console.log('Request API');
-  this.prices$ = this.http.get<any>(this.url).pipe(
-    tap(data => {
-      if (isBrowser) {
-        localStorage.setItem('cs2-prices', JSON.stringify(data));
+    const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+
+    if (isBrowser) {
+      const cached = localStorage.getItem('cs2-prices');
+
+      if (cached) {
+        console.log('Usando cache localStorage');
+        this.prices$ = of(JSON.parse(cached)).pipe(
+          shareReplay({ bufferSize: 1, refCount: true })
+        );
+        return this.prices$;
       }
-    }),
-    shareReplay({ bufferSize: 1, refCount: true })
-  );
+    }
 
-  return this.prices$;
-}
+    console.log('Request API');
+    this.prices$ = this.http.get<any>(this.url).pipe(
+      tap(data => {
+        if (isBrowser) {
+          localStorage.setItem('cs2-prices', JSON.stringify(data));
+        }
+      }),
+      shareReplay({ bufferSize: 1, refCount: true })
+    );
+
+    return this.prices$;
+  }
 
 
   getItemPrice(itemName: string): Observable<any | null> {

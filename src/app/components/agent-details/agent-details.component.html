@@ -23,8 +23,8 @@
             <mat-divider class="desc-divider"></mat-divider>
             <div class="name" [innerHTML]="agent.description | newlineToBr"></div>
             @for(collec of agent.collections; track collec) {
-                <h3>Collection</h3>
                 <div class="collect">
+                    <h3>Collection</h3>
                     <img class="operation-img" src="{{collec.image}}">    
                     <p>{{collec.name}}</p>
                 </div>
