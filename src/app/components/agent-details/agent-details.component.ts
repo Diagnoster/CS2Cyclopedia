@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Agent } from '../../models/agent';
 import { NewlineToBrPipe } from "../../pipes/newline-to-br.pipe";
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -30,18 +30,22 @@ import { PriceComponent } from '../price/price.component';
 })
 export class AgentDetailsComponent implements OnInit {
   agent!: Agent;
+  prices: any = {};
+  agentId!: number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     const navigation = this.router.getCurrentNavigation();
 
     if (navigation?.extras.state?.['agent']) {
       this.agent = navigation.extras.state['agent'];
+      this.prices = navigation.extras.state['prices'];
     } else {
       this.router.navigate(['/agents']);
     }
   }
 
   ngOnInit(): void {
+    this.agentId = Number(this.route.snapshot.paramMap.get('id'));
     if (!this.agent) {
       console.error('Agent is not available!');
     }

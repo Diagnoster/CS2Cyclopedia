@@ -19,7 +19,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.2; 
+  opacity: 0.2;
   z-index: -1;
   background-size: contain;
 }
@@ -47,7 +47,7 @@
 }
 
 .rare-column::-webkit-scrollbar {
-  display: none; /* Oculta a barra no Chrome e Safari */
+  display: none; /* Hidden bar on Chrome and Safari Browser */
 }
 
 .item {
@@ -58,6 +58,17 @@
 
 p {
   color: white;
+}
+
+h3 {
+  color: rgb(231, 221, 160);
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 5px;
 }
 
 .info {

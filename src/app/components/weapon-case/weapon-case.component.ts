@@ -36,35 +36,36 @@ export class WeaponCaseComponent implements OnInit {
     this.setCaseData();
   }
 
-  setCaseData(): void {
-    if (this.caseType === 'weapon') {
-      this.colorMap = {
-        'Grau de especificação militar': '#4169E1', // Azul escuro
-        'Restrito': '#800080', // Roxo
-        'Classificado': '#FF1493', // Rosa
-        'Encoberto': '#FF0000', // Vermelho
-        'Extremamente Raro': '#FFD700' // Ouro
-      };
-      this.weapon_case = this.cs2Helper.getWeaponCases();
-    } else if (this.caseType === 'souvenir') {
-      this.colorMap = {
-        'Grau de consumidor': '#A9A9A9', // Cinza escuro
-        'Grau industrial': '#87CEEB', // Azul claro
-        'Grau de especificação militar': '#4169E1', // Azul escuro
-        'Restrito': '#800080', // Roxo
-        'Classificado': '#FF1493', // Rosa
-        'Encoberto': '#FF0000' // Vermelho
-      };
-      this.weapon_case = this.cs2Helper.getSouvenirCases();
-    } else if (this.caseType === 'sticker') {
-      this.colorMap = {
-        'Alto grau	': '#4169E1', // Azul escuro
-        'Notável': '#800080', // Roxo
-        'Exótico': '#FF1493', // Rosa
-        'Extraordinário': '#FF0000', // Vermelho
-      };
-      this.weapon_case = this.cs2Helper.getStickersCases();
-    }
-    this.dataSource = this.weapon_case;
+setCaseData(): void {
+  if (this.caseType === 'weapon') {
+    this.colorMap = {
+      'Military Spec Grade': '#4169E1', // Dark Blue
+      'Restricted': '#800080', // Purple
+      'Classified': '#FF1493', // Pink
+      'Covert': '#FF0000', // Red
+      'Extremely Rare': '#FFD700' // Gold
+    };
+    this.weapon_case = this.cs2Helper.getWeaponCases();
+  } else if (this.caseType === 'souvenir') {
+    this.colorMap = {
+      'Consumer Grade': '#A9A9A9', // Dark Gray
+      'Industrial Grade': '#87CEEB', // Light Blue
+      'Military Spec Grade': '#4169E1', // Dark Blue
+      'Restricted': '#800080', // Purple
+      'Classified': '#FF1493', // Pink
+      'Covert': '#FF0000' // Red
+    };
+    this.weapon_case = this.cs2Helper.getSouvenirCases();
+  } else if (this.caseType === 'sticker') {
+    this.colorMap = {
+      'High Grade': '#4169E1', // Dark Blue
+      'Remarkable': '#800080', // Purple
+      'Exotic': '#FF1493', // Pink
+      'Extraordinary': '#FF0000', // Red
+    };
+    this.weapon_case = this.cs2Helper.getStickersCases();
   }
+  this.dataSource = this.weapon_case;
+}
+
 }

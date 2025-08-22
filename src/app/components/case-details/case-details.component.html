@@ -2,7 +2,7 @@
     <div class="content">
         <div class="info">
             <mat-card appearance="outlined">
-                <app-price [marketHashName]="container"></app-price>                                  
+                <app-price [marketHashName]="container" [prices]="prices"></app-price>
             </mat-card>
             <mat-card appearance="outlined">
                 <mat-card-content><b>Rental:</b> {{container.rental}}</mat-card-content>
@@ -23,7 +23,7 @@
             @if(container.type === "Case") {
                 <div class="case-content">
                     <mat-card appearance="outlined" (mouseenter)="showTable('case')" (mouseleave)="hideTable()">
-                        <mat-card-content><b>See drop   obabilities</b><mat-icon>keyboard_arrow_down</mat-icon></mat-card-content>
+                        <mat-card-content><b>See drop probabilities</b><mat-icon>keyboard_arrow_down</mat-icon></mat-card-content>
                     </mat-card>     
                 </div>
             }
@@ -66,14 +66,14 @@
             <h3>Normal itens:</h3>
             <div class="rare-column">
                 @for(item of container.contains; track item) {
-                    <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
+                    <img class="item" mat-card-sm-image src="{{item.image}}" (click)="goToItem(item.id)" matTooltip="{{item.name}}">
                 }
             </div>           
             @if(container.contains_rare.length > 0) {
                 <h3>Rare itens:</h3>
                 <div class="rare-column">
                     @for(item of container.contains_rare; track item) {
-                        <img class="item" mat-card-sm-image src="{{item.image}}" matTooltip="{{item.name}}">
+                        <img class="item" mat-card-sm-image src="{{item.image}}" (click)="goToItem(item.id)" matTooltip="{{item.name}}">
                     }
                 </div>
             }

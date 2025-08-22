@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Container } from '../../models/container';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Cs2HelperService } from '../../services/cs2-helper.service';
@@ -12,6 +12,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { SteamValue } from '../../models/steam-value';
 import { PriceComponent } from '../price/price.component';
+import { Cs2ApiService } from '../../services/cs2-api.service';
+import { HashNameSkin } from '../../models/hash-name-skin';
 
 @Component({
   selector: 'app-case-details',
@@ -47,19 +49,23 @@ import { PriceComponent } from '../price/price.component';
 export class CaseDetailsComponent implements OnInit, OnDestroy {
 
   container: Container;
+  prices: any = {};
   value: SteamValue | undefined;
   visibleTable: 'case' | 'souvenir' | 'sticker' | null = null;
+  caseId!: number;
 
-  constructor(private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService) {
+  constructor(private router: Router, private cs2Helper: Cs2HelperService, private cs2Price: Cs2PriceService, private route: ActivatedRoute, private cs2ApiService: Cs2ApiService) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.container = navigation.extras.state['container'];
+      this.prices = navigation.extras.state['prices'];
     } else {
       this.container = {} as Container;
     }
   }
 
   ngOnInit(): void {
+    this.caseId = Number(this.route.snapshot.paramMap.get('id'));
     this.cs2Helper.changeCaseName(this.container.name);
     this.cs2Helper.changeCaseImage(this.container.image);
     window.scrollTo(0, 0); // Rola para o topo quando o componente for carregado
@@ -82,6 +88,39 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
   selecionarItem(nome: string): void {
     this.cs2Price.getItemPrice(nome).subscribe(precos => {
       this.value = precos.steam;
+    });
+  }
+
+  goToItem(objectId: string): void {
+    const isSticker = objectId.toLowerCase().startsWith('sticker');
+
+    const observable = isSticker
+      ? this.cs2ApiService.findStickerByName(objectId)
+      : this.cs2ApiService.findSkinByName(objectId);
+
+    observable.subscribe((item: { wears: any; name: any; id: any; }) => {
+      if (!item) {
+        console.error(`${isSticker ? 'Sticker' : 'Skin'} not found:`, objectId);
+        return;
+      }
+
+      if (!isSticker) {
+        const wears: HashNameSkin[] = [];
+        for (const wear of (item.wears ?? [])) {
+          const marketHashName = `${item.name} (${wear.name})`;
+          wears.push(new HashNameSkin(marketHashName, wear.name));
+        }
+
+        this.router.navigate(
+          ['/skin-details', item.id],
+          { state: { skin: item, prices: this.prices, wears } }
+        ).catch(err => console.error('Navigation error', err));
+      } else {
+        this.router.navigate(
+          ['/sticker-details', item.id],
+          { state: { sticker: item, prices: this.prices } }
+        ).catch(err => console.error('Navigation error', err));
+      }
     });
   }
 

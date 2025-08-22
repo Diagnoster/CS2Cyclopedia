@@ -51,6 +51,9 @@ export class AgentsListComponent implements OnInit {
   ngOnInit(): void {
     this.cs2Helper.changeCaseName('Agents');
     this.getAgents();
+    this.cs2Price.getPrices().subscribe((prices: any) => {
+      this.prices = prices;
+    });
   } 
 
   getAgents() {
@@ -65,7 +68,7 @@ export class AgentsListComponent implements OnInit {
   }
 
   goToDetails(agent: Agent): void {
-    this.router.navigate(['/agent-details'], { state: { agent } }).then(() => {
+    this.router.navigate(['/agent-details', agent.id], { state: { agent, prices: this.prices } }).then(() => {
     }).catch(err => console.error('Navigation error', err));
   }
 }

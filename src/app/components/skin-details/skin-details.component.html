@@ -1,0 +1,49 @@
+<div class="container" [@slideIn]>
+    <div class="info">
+        <h2 class="title">{{skin.name}}</h2>
+        <img class="skin-img" src="{{skin.image}}">
+        <h2 class="title">Category</h2>
+        <p>{{skin.category.name}}</p>
+        <h2 class="title">Stattrak</h2>
+        <span class="bool">
+            @if (skin.stattrak == true) {
+            <img class="boolean-img" src="true.png" alt="Image True Stattrak">
+            } @else {
+            <img class="boolean-img" src="false.png" alt="Image False Stattrak">
+            }
+        </span>
+        <h2 class="title">Souvenir</h2>
+        <span class="bool">
+            @if (skin.souvenir == true) {
+            <img class="boolean-img" src="true.png" alt="Image True Stattrak">
+            } @else {
+            <img class="boolean-img" src="false.png" alt="Image False Stattrak">
+            }
+        </span>
+        <h2 class="title">Rarity</h2>
+        <div class="raridade" [style.background-color]="skin.rarity.color">
+            <p class="rarity-name">{{skin.rarity.name}}</p>
+        </div>
+    </div>
+    <div class="details">
+        <h2 class="title">Description</h2>
+        <div class="line"></div>
+        <div class="name" [innerHTML]="skin.description | newlineToBr"></div>
+        <h2 class="title">Float Value</h2>
+        <div class="float">
+            {{skin.min_float}} - {{skin.max_float}}
+        </div>
+        <h2 class="title">Cases</h2>
+        <div class="crates-container">
+            @for(crate of skin.crates; track crate.id) {
+                <div class="crate">
+                    <img class="crate-img" src="{{crate.image}}" (click)="goToContainer(crate.name)" matTooltip="{{crate.name}}">
+                </div>
+            } 
+        </div>
+        <div class="price">
+            <h2 class="title">Steam Market</h2>
+            <app-price-wears [marketHashName]="wears" [prices]="prices"></app-price-wears>
+        </div>
+    </div>
+</div>

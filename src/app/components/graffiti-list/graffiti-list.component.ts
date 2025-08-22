@@ -59,6 +59,9 @@ export class GraffitiListComponent implements OnInit {
       this.loadMoreGraffitis(); // loading 50 graffits
       this.isLoading = false;
     });
+    this.cs2Price.getPrices().subscribe((prices: any) => {
+      this.prices = prices;
+    });
   }
 
   loadMoreGraffitis(): void {

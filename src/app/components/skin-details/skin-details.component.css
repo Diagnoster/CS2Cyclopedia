@@ -58,13 +58,15 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30%;
-    margin: 0 auto;
-    margin-top: 4%;
-    padding: 15px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    text-align: center;
+    border-radius: 10px;
+    width: 85%;
+}
+
+.float {
+    color: rgb(253, 253, 255);
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 1px 1px 2px black;
 }
 
 mat-divider {
@@ -82,13 +84,35 @@ mat-divider {
     color: white;
 }
 
-.sticker-img {
+.skin-img {
     width: 340px;
     height: auto;
 }
 
+.crates-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.crate-img {
+    width: 150px;
+    height: auto;
+}
+
+.crate {
+    width: 250px;
+    text-align: center;
+}
+
+.crate-img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 @media (max-width: 1300px) {
-    .sticker-img {
+    .skin-img {
         width: 250px;
     }
 
@@ -98,7 +122,7 @@ mat-divider {
 }
 
 @media (max-width: 950px) {
-    .sticker-img {
+    .skin-img {
         width: 230px;
     }
 
@@ -116,7 +140,7 @@ mat-divider {
 }
 
 @media (max-width: 950px) {
-    .sticker-img {
+    .skin-img {
         width: 190px;
     }
 }
@@ -126,7 +150,7 @@ mat-divider {
         font-size: 22px;
     }
 
-    .sticker-img {
+    .skin-img {
         width: 300px;
     }
 

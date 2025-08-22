@@ -1,16 +1,40 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Agent } from '../models/agent';
+import { Container } from '../models/container';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Cs2ApiService {
 
-  URL_BASE = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/pt-BR';
+  URL_BASE = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en';
 
   constructor(private http: HttpClient) { }
+
+  getAllSkins(): Observable<any> {
+    const url = `${this.URL_BASE}/skins.json`;
+    return this.http.get<any>(url);
+  }
+
+  findSkinByName(name: string): Observable<any> {
+    return this.getAllSkins().pipe(
+      map(skins => skins.find((s: any) => s.id === name))
+    );
+  }
+
+  findStickerByName(name: string): Observable<any> {
+    return this.getAllStickers().pipe(
+      map(skins => skins.find((s: any) => s.id === name))
+    );
+  }
+
+  findCrateByName(name: string): Observable<Container | null> {
+    return this.getAllCases().pipe(
+      map(crates => crates.find((s: any) => s.name === name))
+    );
+  }
 
   getAllCases(): Observable<any> {
     const url = `${this.URL_BASE}/crates.json`;

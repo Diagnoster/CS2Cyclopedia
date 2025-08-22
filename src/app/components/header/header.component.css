@@ -68,7 +68,7 @@ p {
     color: white;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 870px) {
     .home-span {
         display: none;
     }

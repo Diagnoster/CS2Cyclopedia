@@ -11,7 +11,7 @@
                 <p class="name">{{agent.name}}</p>
                 <p>{{agent.team.name}}</p>
             </mat-card-content>
-            <app-price [marketHashName]="agent"></app-price>
+            <app-price [marketHashName]="agent" [prices]="prices"></app-price>
             <div class="test" [style.background-color]="agent.rarity.color">
                 <p>{{agent.rarity.name}}</p>
             </div>

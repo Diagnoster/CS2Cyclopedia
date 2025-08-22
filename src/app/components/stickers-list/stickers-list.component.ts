@@ -12,8 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { Cs2PriceService } from '../../services/cs2-price.service';
 import { PriceComponent } from '../price/price.component';
+import { Cs2PriceService } from '../../services/cs2-price.service';
 
 @Component({
   selector: 'app-stickers-list',
@@ -58,6 +58,9 @@ export class StickersListComponent implements OnInit {
       this.loadMoreStickers(); // loading 50 stickers
       this.isLoading = false;
     });
+    this.cs2Price.getPrices().subscribe((prices: any) => {
+      this.prices = prices;
+    });
   }
 
   loadMoreStickers(): void {
@@ -94,16 +97,8 @@ export class StickersListComponent implements OnInit {
   }
 
   goToDetails(sticker: Sticker): void {
-    this.router.navigate(['/sticker-details'], { state: { sticker } }).then(() => {
+    this.router.navigate(['/sticker-details', sticker.id], { state: { sticker, prices: this.prices } }).then(() => {
       console.log('Navigation complete');
     }).catch(err => console.error('Navigation error', err));
   }
-
-  getPrice(sticker: Sticker): number | null {
-    if (this.prices && this.prices[sticker.market_hash_name] && this.prices[sticker.market_hash_name].steam) {
-      return this.prices[sticker.market_hash_name].steam.last_24h;
-    }
-    return null;
-  }
-
 }

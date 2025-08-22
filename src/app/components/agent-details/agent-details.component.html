@@ -6,10 +6,10 @@
             </mat-card-header>
             <img class="agent-img" src="{{agent.image}}">
             <mat-card-content>
-                <h3>Facção</h3>
+                <h3>Faction</h3>
                 <p class="name">{{agent.faction}}</p>
                 <mat-divider></mat-divider>
-                <h3>Equipe</h3>
+                <h3>Team</h3>
                 @if(agent.team.id == 'terrorists') {
                     <img class="team" src="tr_team.webp" matTooltip="{{agent.team.name}}" alt="Icone equipe">
                 }
@@ -19,19 +19,19 @@
             </mat-card-content>
         </mat-card>
         <mat-card-content class="desc-details">
-            <h3>Descrição</h3>
+            <h3>Description</h3>
             <mat-divider class="desc-divider"></mat-divider>
             <div class="name" [innerHTML]="agent.description | newlineToBr"></div>
             @for(collec of agent.collections; track collec) {
-                <h3>Coleção</h3>
                 <div class="collect">
+                    <h3>Collection</h3>
                     <img class="operation-img" src="{{collec.image}}">    
                     <p>{{collec.name}}</p>
                 </div>
             }
             <div class="price">
                 <h3>Steam Market</h3>
-                <app-price [marketHashName]="agent"></app-price>
+                <app-price [marketHashName]="agent" [prices]="prices"></app-price>
             </div>
         </mat-card-content>
     </mat-card>
