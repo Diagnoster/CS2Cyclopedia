@@ -63,6 +63,47 @@
 
 </br>
 
+# CS2 Price Service
+
+### 🔎 Price Lookup
+
+The application fetches item prices directly from the [counter-strike-price-tracker](https://github.com/ByMykel/counter-strike-price-tracker) repository, which maintains a [`latest.json`](https://raw.githubusercontent.com/ByMykel/counter-strike-price-tracker/main/static/prices/latest.json) file updated daily with the most recent prices for all tradable CS2 items.
+
+To optimize performance and reduce server load:
+
+- The file is fetched only once and cached in **memory** and **localStorage**.
+- Subsequent requests reuse this cache without additional network calls.
+- The service API (`Cs2PriceService`) provides methods to retrieve **all prices** or get the price of a **specific item** by its market hash name.
+
+---
+
+### 📌 Usage Example
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import { Cs2PriceService } from './services/cs2-price.service';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <div *ngIf="akPrice">
+      AK-47 | Redline price: {{ akPrice }} €
+    </div>
+  `
+})
+export class AppComponent implements OnInit {
+  akPrice: number | null = null;
+
+  constructor(private priceService: Cs2PriceService) {}
+
+  ngOnInit() {
+    this.priceService.getItemPrice('AK-47 | Redline').subscribe(price => {
+      this.akPrice = price;
+    });
+  }
+}
+```
+
 <h2 align="center"><img src="public/mdimage4.png" alt="img" width="50"/>Further Help<img src="public/mdimage4.png" alt="img" width="50"/></h2>
 
 <p align="center">
