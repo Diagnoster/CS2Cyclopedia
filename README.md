@@ -121,7 +121,10 @@ export class AppComponent implements OnInit {
 
 <h4 align="center">
   Credits to ByMykel for providing the API for data retrieval: 
+  </br>
   <a href="https://github.com/ByMykel/CSGO-API">https://github.com/ByMykel/CSGO-API</a>
+  </br>
+  <a href="https://github.com/ByMykel/counter-strike-price-tracker">https://github.com/ByMykel/counter-strike-price-tracker</a>
 </h4>
 
 <br/>
