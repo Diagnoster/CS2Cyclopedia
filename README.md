@@ -111,9 +111,14 @@ export class AppComponent implements OnInit {
   <a href="https://angular.dev/tools/cli">Angular CLI Overview and Command Reference</a> page.
 </p>
 
-<h4 align="center">
-  <a href="https://material.angular.io/components/categories">Angular Material Components</a>
-</h4>
+<p align="center">
+  Angular Material Components provide a set of reusable, well-designed UI components that follow the Material Design guidelines.  
+  You can check them out here: <a href="https://material.angular.io/components/categories">Angular Material Components</a>
+</p>
+
+<p align="center">
+  To deploy this application, you can use <a href="https://app.netlify.com/">Netlify</a> for free hosting with SSR support.
+</p>
 
 <br/>
 
