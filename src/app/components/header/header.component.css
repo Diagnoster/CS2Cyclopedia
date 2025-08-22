@@ -68,6 +68,14 @@ p {
     color: white;
 }
 
+.favorite {
+    color: gold;
+}
+
+.favorite:hover {
+    transform: scale(1.20);
+}
+
 @media (max-width: 870px) {
     .home-span {
         display: none;

@@ -15,9 +15,11 @@
             <span class="menu-item" (click)="goToSkins()">Skins</span>
         </div>
         <span class="spacer"></span>
-        <button mat-icon-button class="icon favorite-icon" aria-label="Example icon-button with heart icon">
-            <mat-icon>favorite</mat-icon>
-        </button>
+        <a href="https://github.com/Diagnoster/CS2Cyclopedia">
+            <button mat-icon-button class="icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon class="favorite">favorite</mat-icon>
+            </button>
+        </a>
     </mat-toolbar-row>
     <mat-toolbar-row class="second-toolbar">
         @if(containerImage) {
