@@ -91,26 +91,37 @@ export class CaseDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  goToSkin(skinName: string): void {
-    this.cs2ApiService.findSkinByName(skinName).subscribe(skin => {
-      if (!skin) {
-        console.error('Skin not found:', skinName);
+  goToItem(objectId: string): void {
+    const isSticker = objectId.toLowerCase().startsWith('sticker');
+
+    const observable = isSticker
+      ? this.cs2ApiService.findStickerByName(objectId)
+      : this.cs2ApiService.findSkinByName(objectId);
+
+    observable.subscribe((item: { wears: any; name: any; id: any; }) => {
+      if (!item) {
+        console.error(`${isSticker ? 'Sticker' : 'Skin'} not found:`, objectId);
         return;
       }
 
-      // wears
-      const wears: HashNameSkin[] = [];
-      for (const wear of (skin.wears ?? [])) {
-        const marketHashName = `${skin.name} (${wear.name})`;
-        wears.push(new HashNameSkin(marketHashName, wear.name));
-      }
+      if (!isSticker) {
+        const wears: HashNameSkin[] = [];
+        for (const wear of (item.wears ?? [])) {
+          const marketHashName = `${item.name} (${wear.name})`;
+          wears.push(new HashNameSkin(marketHashName, wear.name));
+        }
 
-      this.router.navigate(
-        ['/skin-details', skin.id],
-        { state: { skin, prices: this.prices, wears } }
-      ).catch(err => console.error('Navigation error', err));
+        this.router.navigate(
+          ['/skin-details', item.id],
+          { state: { skin: item, prices: this.prices, wears } }
+        ).catch(err => console.error('Navigation error', err));
+      } else {
+        this.router.navigate(
+          ['/sticker-details', item.id],
+          { state: { sticker: item, prices: this.prices } }
+        ).catch(err => console.error('Navigation error', err));
+      }
     });
   }
-
 
 }

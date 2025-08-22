@@ -20,7 +20,13 @@ export class Cs2ApiService {
 
   findSkinByName(name: string): Observable<any> {
     return this.getAllSkins().pipe(
-      map(skins => skins.find((s: any) => s.name === name))
+      map(skins => skins.find((s: any) => s.id === name))
+    );
+  }
+
+  findStickerByName(name: string): Observable<any> {
+    return this.getAllStickers().pipe(
+      map(skins => skins.find((s: any) => s.id === name))
     );
   }
 
