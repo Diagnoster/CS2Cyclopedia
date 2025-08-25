@@ -1,6 +1,8 @@
 <div class="container" (window:scroll)="onScroll()">
-    <app-base-filter class="filter" [items]="allGraffiti" [fieldName]="'name'"
-        (filteredItems)="graffiti = $event"></app-base-filter>
+    <mat-form-field class="filter">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" [(ngModel)]="searchTerm" (input)="filterGraffits()" placeholder="Search">
+    </mat-form-field>
     @if(isLoading) {
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     } 
