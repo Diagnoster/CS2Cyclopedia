@@ -51,7 +51,6 @@ h2 {
     font-weight: bold;
     font-size: 18px;
     text-shadow: 1px 1px 2px black;
-
 }
 
 .price {
@@ -166,5 +165,10 @@ mat-divider {
         justify-content: center;
         align-items: center;
         width: 100%;
+    }
+
+    .crate-img {
+        width: 80px;
+        height: auto;
     }
 }
