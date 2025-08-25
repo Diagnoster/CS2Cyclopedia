@@ -21,19 +21,20 @@ export class BaseFilterComponent {
   @Input() items: any[] = [];
   @Input() fieldName: string = '';
   @Output() filteredItems = new EventEmitter<any[]>();
-
+  filtered: any[] = [];
   value = '';
 
   filterItems() {
     const searchValue = this.value.toLowerCase();
-    const filtered = this.items.filter(item => 
+    this.filtered = this.items.filter(item =>
       item[this.fieldName]?.toLowerCase().includes(searchValue)
     );
-    this.filteredItems.emit(filtered);
+    this.filteredItems.emit(this.filtered);
   }
 
   clearFilter() {
     this.value = '';
+    this.filtered = this.items;
     this.filteredItems.emit(this.items);
   }
 }

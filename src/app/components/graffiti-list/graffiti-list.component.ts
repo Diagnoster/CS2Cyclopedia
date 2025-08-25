@@ -14,6 +14,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Cs2PriceService } from '../../services/cs2-price.service';
 import { CommonModule } from '@angular/common';
 import { PriceComponent } from '../price/price.component';
+import { BaseFilterComponent } from '../base-filter/base-filter.component';
 
 @Component({
   selector: 'app-graffiti-list',
@@ -27,7 +28,8 @@ import { PriceComponent } from '../price/price.component';
     MatInputModule,
     MatProgressBarModule,
     CommonModule,
-    PriceComponent
+    PriceComponent,
+    BaseFilterComponent
   ],
   templateUrl: './graffiti-list.component.html',
   styleUrl: './graffiti-list.component.css',
